@@ -1,0 +1,8 @@
+E:\vs2010project\ManagementSystem\Database\sql\debug\Database_Script.PreDeployment.sql
+E:\vs2010project\ManagementSystem\Database\sql\debug\Database_Script.PostDeployment.sql
+E:\vs2010project\ManagementSystem\Database\sql\debug\Database_Database.sqlsettings
+E:\vs2010project\ManagementSystem\Database\sql\debug\Database_Database.sqldeployment
+E:\vs2010project\ManagementSystem\Database\sql\debug\Database_Database.sqlcmdvars
+E:\vs2010project\ManagementSystem\Database\sql\debug\Database.deploymanifest
+E:\vs2010project\ManagementSystem\Database\sql\debug\Database.dbschema
+E:\vs2010project\ManagementSystem\Database\obj\Debug\Database.dbschema
