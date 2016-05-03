@@ -83,7 +83,6 @@ vector< vector<_variant_t> > CDataBaseAdo::Select(BSTR strSql, vector<_variant_t
 			vRecord.push_back(vTheValue);
 			pRecordset->MoveNext();
 		}
-	
 		pRecordset->Close();
 		pRecordset = NULL;
 	}
