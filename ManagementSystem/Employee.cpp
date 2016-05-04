@@ -72,7 +72,7 @@ void CEmployee::OnBnClickedBtnQuit()
 void CEmployee::OnBnClickedBtnShow()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	bool i=m_DataBase.Open("server=8PDYMQCADPLRIDS;database=MyData;Truster_Connection=SSPI");
+	bool i=m_DataBase.Open();
 
 	if( i==true )
 	{

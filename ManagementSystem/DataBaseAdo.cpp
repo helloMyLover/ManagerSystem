@@ -1,9 +1,12 @@
 #include "StdAfx.h"
 #include "DataBaseAdo.h"
 
-
+//"Provider=SQLOLEDB;SERVER=server;DATABASE=samp;UID=admin;PWD=admin
+//"Data Source=8PDYMQCADPLRIDS;Initial Catalog=MyData;User ID=lily;Pwd=123
 CDataBaseAdo::CDataBaseAdo(void)
+:strConnection("Provider=SQLOLEDB;Data Source=8PDYMQCADPLRIDS;Initial Catalog=MyData;UID=lily;PWD=123")
 {
+
 	::CoInitialize(NULL);
 	m_pConnection = NULL;
 }
@@ -19,11 +22,15 @@ CDataBaseAdo::~CDataBaseAdo(void)
 	//::CoUninitialize();
 }
 
-bool CDataBaseAdo::Open(_bstr_t strConnection)
+bool CDataBaseAdo::Open()
 {
 	if (FAILED(m_pConnection.CreateInstance(__uuidof(Connection))))
 	{
 		return false;
+
+	}
+	else
+	{
 		try
 		{
 			m_pConnection->Open(strConnection,"","",0);
@@ -33,10 +40,7 @@ bool CDataBaseAdo::Open(_bstr_t strConnection)
 			AfxMessageBox( e.Description() );
 			return false;
 		}
-	}
-	else
-	{
-		state=1;
+		int i=m_pConnection->State;
 		return true;
 	}
 }
