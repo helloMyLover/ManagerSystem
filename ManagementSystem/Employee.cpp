@@ -40,7 +40,6 @@ END_MESSAGE_MAP()
 BOOL CEmployee::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
 	// TODO:  在此添加额外的初始化
 	//连接数据库
 	CRect rc;
@@ -72,7 +71,6 @@ void CEmployee::OnBnClickedBtnShow()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	bool t=m_DataBase.Open();
-
 	if( t==true )
 	{
 		vector<_variant_t> vName;

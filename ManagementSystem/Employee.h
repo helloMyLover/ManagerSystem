@@ -27,3 +27,30 @@ public:
 	afx_msg void OnBnClickedBtnShow();
 	
 };
+
+class Cemployee
+{
+	UINT ID;
+	char * NAME;
+	CString PHONE;
+	CString POST; //职务
+	CString ID_CARD; //身份证号码
+	virtual bool order(void);
+};
+
+class CCook:public Cemployee
+{
+	bool order(void);
+};
+
+class CWaiter:public Cemployee
+{
+	bool order(void);
+};
+
+class CManager:public Cemployee
+{
+	int addEmployee(void);  //增删员工
+	int deleteEmployee(void);
+	bool order(void);
+};

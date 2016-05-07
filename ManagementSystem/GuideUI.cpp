@@ -31,8 +31,6 @@ CGuideUI::CGuideUI(CWnd* pParent /*=NULL*/)
 	//load processCtrl 
 	//OnPaint();
 //	pro_Guide.SetRange(0,100);
-
-
 }
 
 CGuideUI::~CGuideUI()
@@ -49,7 +47,6 @@ void CGuideUI::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CGuideUI, CDialogEx)
-	
 	ON_BN_CLICKED(IDC_BTN_CLOSE, &CGuideUI::OnBnClickedBtnClose)
 	ON_WM_PAINT()
 END_MESSAGE_MAP()
@@ -83,7 +80,6 @@ void CGuideUI::OnPaint()
 	
 	//this can show the pic why? 
 	dc.BitBlt(0,0,bmp1.bmWidth,bmp1.bmHeight,&mendc,0,0,SRCCOPY); 
-
 
 }
 

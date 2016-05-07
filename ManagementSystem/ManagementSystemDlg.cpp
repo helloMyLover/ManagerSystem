@@ -72,6 +72,7 @@ BEGIN_MESSAGE_MAP(CManagementSystemDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BTN_TEST, &CManagementSystemDlg::OnBnClickedBtnTest)
+	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 
@@ -110,7 +111,7 @@ BOOL CManagementSystemDlg::OnInitDialog()
 
 	//启动画面
 	CGuideUI guideDlg;
-	guideDlg.Create(IDB_BITMAP2);
+	guideDlg.Create(IDB_PIC_DINNER);
 	guideDlg.CenterWindow();
 	//guideDlg.UpdateWindow();
 	Sleep(2500);
@@ -180,4 +181,28 @@ void CManagementSystemDlg::OnBnClickedBtnTest()
 	DLG.DoModal();
 
 #endif
+}
+
+
+
+
+BOOL CManagementSystemDlg::OnEraseBkgnd(CDC* pDC)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	CRect rect;
+	CDC mendc;
+	mendc.CreateCompatibleDC(pDC);
+//	BITMAP bmp;
+	m_bitmap.LoadBitmap(IDB_PIC_BACKGROUND);
+	m_bitmap.GetBitmap(&bmp);
+	CBitmap * pOldBitmap = mendc.SelectObject(&m_bitmap);
+
+
+	mendc.SelectObject(&m_bitmap);
+	pDC->BitBlt(0,0,bmp.bmWidth,bmp.bmHeight,&mendc,0,0,SRCCOPY);
+	mendc.SelectObject(pOldBitmap);
+	m_bitmap.DeleteObject();
+//	
+	return true;
+	//return CDialogEx::OnEraseBkgnd(pDC);
 }
