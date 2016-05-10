@@ -51,9 +51,8 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
+
 // CManagementSystemDlg 对话框
-
-
 
 
 CManagementSystemDlg::CManagementSystemDlg(CWnd* pParent /*=NULL*/)
@@ -73,6 +72,7 @@ BEGIN_MESSAGE_MAP(CManagementSystemDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BTN_TEST, &CManagementSystemDlg::OnBnClickedBtnTest)
 	ON_WM_ERASEBKGND()
+	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
@@ -117,7 +117,15 @@ BOOL CManagementSystemDlg::OnInitDialog()
 	Sleep(2500);
 	guideDlg.DestroyWindow();
 
+
+	//改变窗口大小
+	m_bitmap.LoadBitmap(IDB_PIC_BACKGROUND);
+	m_bitmap.GetBitmap(&bmp);
+	SetWindowPos(this,0,0,bmp.bmWidth,bmp.bmHeight,SWP_NOZORDER|SWP_NOMOVE);  //
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
+
+	//控件根据窗口大小改变位置
+
 }
 
 void CManagementSystemDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -179,7 +187,6 @@ void CManagementSystemDlg::OnBnClickedBtnTest()
 #else 
 	CFood DLG;
 	DLG.DoModal();
-
 #endif
 }
 
@@ -189,20 +196,33 @@ void CManagementSystemDlg::OnBnClickedBtnTest()
 BOOL CManagementSystemDlg::OnEraseBkgnd(CDC* pDC)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
-	CRect rect;
 	CDC mendc;
 	mendc.CreateCompatibleDC(pDC);
-//	BITMAP bmp;
-	m_bitmap.LoadBitmap(IDB_PIC_BACKGROUND);
-	m_bitmap.GetBitmap(&bmp);
+
 	CBitmap * pOldBitmap = mendc.SelectObject(&m_bitmap);
-
-
-	mendc.SelectObject(&m_bitmap);
 	pDC->BitBlt(0,0,bmp.bmWidth,bmp.bmHeight,&mendc,0,0,SRCCOPY);
 	mendc.SelectObject(pOldBitmap);
 	m_bitmap.DeleteObject();
-//	
+	mendc.DeleteDC();
+
 	return true;
 	//return CDialogEx::OnEraseBkgnd(pDC);
 }
+
+
+void CManagementSystemDlg::OnSize(UINT nType, int cx, int cy)
+{
+	CDialogEx::OnSize(nType, cx, cy);
+
+	CRect oldrc;
+	GetWindowRect(oldrc);
+	CWnd * pwnd = GetDlgItem(IDOK);
+//	if(pwnd->GetSafeHwnd())
+//		pwnd->MoveWindow(cx-20,);
+	pwnd->SetWindowPos(NULL,1450,8,0,0,SWP_NOZORDER | SWP_NOSIZE);
+
+
+	// TODO: 在此处添加消息处理程序代码
+}
+
+

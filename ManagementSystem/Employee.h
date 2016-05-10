@@ -30,6 +30,9 @@ public:
 
 class Cemployee
 {
+public:
+	Cemployee();
+	virtual ~Cemployee();
 	UINT ID;
 	char * NAME;
 	CString PHONE;
@@ -40,16 +43,23 @@ class Cemployee
 
 class CCook:public Cemployee
 {
+	CCook();
+	~CCook();
 	bool order(void);
 };
 
 class CWaiter:public Cemployee
 {
+	CWaiter();
+	~CWaiter();
 	bool order(void);
 };
 
 class CManager:public Cemployee
 {
+public:
+	CManager();
+	~CManager();
 	int addEmployee(void);  //ÔöÉ¾Ô±¹¤
 	int deleteEmployee(void);
 	bool order(void);

@@ -34,4 +34,5 @@ public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	CBitmap m_bitmap;
 	BITMAP bmp;
+	afx_msg void OnSize(UINT nType, int cx, int cy);
 };
