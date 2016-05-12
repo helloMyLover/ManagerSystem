@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="b2aab808-0529-4e02-89f5-5e3086e2e20d" name="UMLClassDiagram1" linkedPackageId="2fd47dd0-b166-47a3-a291-cd926945aba2" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="b794a1d5-0fc3-45dc-890d-598e4752573e">
+      <profileInstance Id="cac000bb-e76d-4c85-9fda-8f0085e3ad21" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="d60cbc9d-618f-4f29-9855-86d533401839">
+      <profileInstance Id="1deecac6-8e91-424e-bf23-f3e0c79a9c08" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b738629d-efd3-4620-90ca-a2ba488cdadf" name="服务员" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="024f118a-1b59-4112-a588-d52662688a74" />
+        <generalsInternal>
+          <generalization Id="691605ae-d068-4aef-9c74-e89cab7181a0" isSubstitutable="false">
+            <classMoniker Id="9ba07bd4-9c87-4ee9-9e9d-4b3d30ebe0f6" LastKnownName="经理" />
+            <elementDefinition Id="44ee6264-9185-4175-892d-43b03374e897" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="31e0b865-4c4a-4563-911e-485d6ad47b54" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="188128b5-93f0-4aa7-9638-1bbf7ae891df" />
+          </property>
+          <property Id="a0bf6ef7-5cc8-4826-9fbb-f08e7f88ed14" name="name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9d951a4d-474a-4655-83c7-e252a9782b20" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="5d84e8ba-3411-4825-95c2-4f871719de96" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f344c9d4-696a-4962-8753-71a322778be7" />
+          </operation>
+          <operation Id="f4b26574-1066-4b14-9e0a-026666f97d94" name="delete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3a84c4e9-b2d1-4c27-84b3-cea731469626" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9ba07bd4-9c87-4ee9-9e9d-4b3d30ebe0f6" name="经理" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="68e0a2af-6827-4d4a-a669-0b6424d9fc40" />
+        <ownedAttributesInternal>
+          <property Id="c864b412-a0ff-46a7-bbcc-a7d124996d6b" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3edda3e8-a6a5-43f7-936b-af6861abb823" />
+          </property>
+          <property Id="bfbd5c4c-948d-4634-944d-2e390cc3f503" name="name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="94faa33b-76a1-4b0a-b461-7e4acdf5898c" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="901da857-236c-4284-8f59-16d537efe18e" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="90cc1f60-15c5-4207-a22e-c448cfcfe03a" />
+          </operation>
+          <operation Id="c6977c27-96d8-4820-b5e1-b55840a569e3" name="delete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="528a3066-0a14-4852-b927-5df2cc10d0a8" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="cfc336a3-49d2-4bec-b658-36e59a3d417e" name="会员" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7fceb605-4df2-4fec-b58c-199b1391df93" />
+        <ownedAttributesInternal>
+          <property Id="d677492e-8e2f-45a8-ace8-ba10188f9e2b" name="memberPoint" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b028475f-3004-47d5-aaa5-4060c437103c" />
+          </property>
+          <property Id="a42ab340-1766-49db-bde5-14c1081eef58" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="27c6703b-f482-4fb6-ad75-48c28ac5f8be" />
+          </property>
+          <property Id="41c4bd69-93c7-4809-af31-6a625b858d53" name="birthday" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3c25033b-219d-4f67-a721-9bf0c7d5893b" />
+          </property>
+          <property Id="c3176f11-a117-487d-85fb-aa62f55b0e0c" name="phone" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c56d4ebc-1eee-4001-93a1-c56fa6114088" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="256e3d49-db9a-4ead-b9fd-6d21082cf0fe" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b8bdafea-9123-49fb-ae36-78abae609778" />
+          </operation>
+          <operation Id="e3ed95d3-c02d-4ade-97f2-08bdd21167e7" name="blackList" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="c36d5a61-3f21-42ee-b254-6deecbff33bb" />
+          </operation>
+          <operation Id="cdf64552-f4e4-4f10-95d5-eca3b3eb1f39" name="sendMessage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="fd83d542-2f3e-4412-adf3-429b6601a104" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="809f4c74-2f78-4408-b656-923e253e189b" name="食谱" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="523eb4f2-c49e-4751-b049-78bdb3f3fb2d" />
+        <ownedOperationsInternal>
+          <operation Id="e2ca7f56-703c-4ebc-aaca-2e1eaed57e24" name="add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3bfc1aff-ffb0-4a28-b9a8-531508445f82" />
+          </operation>
+          <operation Id="eb348e73-1fc6-4e15-b0db-3d7a96fd100d" name="delete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0dc4b246-cc65-4044-9d41-b081b9c73227" />
+          </operation>
+          <operation Id="bfe75c14-3617-4921-82da-715c12064235" name="show" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="953cadbe-ec59-4959-825c-645ff3640cd3" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="2fd47dd0-b166-47a3-a291-cd926945aba2" name="ModelingProject_Manager">
+    <elementDefinition Id="9dea8561-014c-4a4d-9286-09b4c6dda8a7" />
+  </package>
+</logicalClassDesignerModel>

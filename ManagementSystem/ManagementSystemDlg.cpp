@@ -109,22 +109,12 @@ BOOL CManagementSystemDlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 
-	//启动画面
-	CGuideUI guideDlg;
-	guideDlg.Create(IDB_PIC_DINNER);
-	guideDlg.CenterWindow();
-	//guideDlg.UpdateWindow();
-	Sleep(2500);
-	guideDlg.DestroyWindow();
-
-
 	//改变窗口大小
 	m_bitmap.LoadBitmap(IDB_PIC_BACKGROUND);
 	m_bitmap.GetBitmap(&bmp);
 	SetWindowPos(this,0,0,bmp.bmWidth,bmp.bmHeight,SWP_NOZORDER|SWP_NOMOVE);  //
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 
-	//控件根据窗口大小改变位置
 
 }
 
@@ -221,6 +211,12 @@ void CManagementSystemDlg::OnSize(UINT nType, int cx, int cy)
 //		pwnd->MoveWindow(cx-20,);
 	pwnd->SetWindowPos(NULL,1450,8,0,0,SWP_NOZORDER | SWP_NOSIZE);
 
+
+	CWnd * pwnd2=GetDlgItem(IDC_MENU);
+	pwnd2->SetWindowPos(NULL,0,0,1200,800,SWP_NOMOVE);
+
+	CWnd * pwnd3=GetDlgItem(IDC_BTN_ORDER);
+	pwnd3->SetWindowPos(NULL,250,15,0,0,SWP_NOZORDER | SWP_NOSIZE);
 
 	// TODO: 在此处添加消息处理程序代码
 }

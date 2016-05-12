@@ -1,0 +1,1320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+  dslVersion="1.0.0.0"
+  Id="9dea8561-014c-4a4d-9286-09b4c6dda8a7"
+  name="ModelingProject_Manager" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="024f118a-1b59-4112-a588-d52662688a74"
+        name="服务员"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="44ee6264-9185-4175-892d-43b03374e897"
+            isSubstitutable="false">
+            <classMoniker
+              Id="68e0a2af-6827-4d4a-a669-0b6424d9fc40"
+              LastKnownName="经理"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="188128b5-93f0-4aa7-9638-1bbf7ae891df"
+            name="ID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="9d951a4d-474a-4655-83c7-e252a9782b20"
+            name="name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f344c9d4-696a-4962-8753-71a322778be7"
+            name="add"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="3a84c4e9-b2d1-4c27-84b3-cea731469626"
+            name="delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="68e0a2af-6827-4d4a-a669-0b6424d9fc40"
+        name="经理"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="3edda3e8-a6a5-43f7-936b-af6861abb823"
+            name="ID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="94faa33b-76a1-4b0a-b461-7e4acdf5898c"
+            name="name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="90cc1f60-15c5-4207-a22e-c448cfcfe03a"
+            name="add"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="528a3066-0a14-4852-b927-5df2cc10d0a8"
+            name="delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="ffcf7bf2-8d11-4895-bfe5-47b290acaadb"
+        name="顾客"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="9bbb2624-d0b9-4ce9-91c8-df63596168b0"
+            isDerived="false"
+            sourceEndRoleName="顾客"
+            targetEndRoleName="会员"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7fceb605-4df2-4fec-b58c-199b1391df93"
+              LastKnownName="会员"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2b31425c-f6bf-4a65-87bd-bf446c3d3edd"
+                  name="顾客"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f537e02f-fe8d-48e0-a143-11b48858bfa0"
+                  name="会员"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7fceb605-4df2-4fec-b58c-199b1391df93"
+        name="会员"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedAttributesInternal>
+          <property
+            Id="b028475f-3004-47d5-aaa5-4060c437103c"
+            name="memberPoint"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="27c6703b-f482-4fb6-ad75-48c28ac5f8be"
+            name="ID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="3c25033b-219d-4f67-a721-9bf0c7d5893b"
+            name="birthday"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="c56d4ebc-1eee-4001-93a1-c56fa6114088"
+            name="phone"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="b8bdafea-9123-49fb-ae36-78abae609778"
+            name="add"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="c36d5a61-3f21-42ee-b254-6deecbff33bb"
+            name="blackList"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="fd83d542-2f3e-4412-adf3-429b6601a104"
+            name="sendMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="523eb4f2-c49e-4751-b049-78bdb3f3fb2d"
+        name="食谱"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="3bfc1aff-ffb0-4a28-b9a8-531508445f82"
+            name="add"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="0dc4b246-cc65-4044-9d41-b081b9c73227"
+            name="delete"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="953cadbe-ec59-4959-825c-645ff3640cd3"
+            name="show"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1e423044-a203-4384-a488-fe52e7e50e3f"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="bd248d45-f002-4e2e-b64f-06c3cbe12cb0"
+        name="Sequence1"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <lifelines>
+          <lifeline
+            Id="f38c4ce0-6d43-4be8-b31f-441e815e0d79"
+            name="客人来了"
+            isActor="false"
+            lifelineDisplayName="‎客人来了‎" />
+        </lifelines>
+        <ownedAttributesInternal>
+          <property
+            Id="92dde15f-c9b0-4310-8538-662bd8d17400"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="024f118a-1b59-4112-a588-d52662688a74"
+                LastKnownName="服务员"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="7bd7e3b2-c658-42e9-9226-f724f4713c49"
+        name="单据"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="df02548a-e5ba-4aa1-ac15-0b5054ab1d12"
+        name="顾客"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3b84e700-0cb4-4e98-bdf7-4b0c62d93a46"
+            isDerived="false"
+            sourceEndRoleName="顾客"
+            targetEndRoleName="选择座位位置"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4bdfbf11-e111-4496-9161-70e599fd9539"
+              LastKnownName="选择座位位置"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b4b122dc-4dc2-4a69-9abc-5e5fb57ff7bd"
+                  name="顾客"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="172ccca3-bd6c-433e-88c3-806e0acfe4dd"
+                  name="选择座位位置"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="19fabb37-e397-443a-94b1-e5b8d3524fb4"
+        name="下单"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="2cc03f87-ba7b-4e4d-bce6-c4cb2429167f"
+            isDerived="false"
+            sourceEndRoleName="下单"
+            targetEndRoleName="服务员"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="e5193b48-9b3a-4b80-8973-b9849fdbfd83"
+              LastKnownName="服务员"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="92070d6d-19cb-4be4-812f-08e956c0d429"
+                  name="下单"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="27448f96-c72d-4156-8dc7-1a8b2f52f4c6"
+                  name="服务员"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="e5193b48-9b3a-4b80-8973-b9849fdbfd83"
+        name="服务员"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="60e1e8cb-9f47-4148-9aed-b6daa4c4554b"
+            isDerived="false"
+            sourceEndRoleName="服务员"
+            targetEndRoleName="下单"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f5d7a006-15d6-4777-b183-6eb954372933"
+              LastKnownName="下单"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d54219bf-c064-4303-859a-eb6bc285a4b3"
+                  name="服务员"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a1e67567-564a-4bcc-bd96-48c073f62a01"
+                  name="下单"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4bdfbf11-e111-4496-9161-70e599fd9539"
+        name="选择座位位置"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="0ccf3788-fc65-4c04-beac-3036c845a52e"
+            isDerived="false"
+            sourceEndRoleName="选择座位位置"
+            targetEndRoleName="下单"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="19fabb37-e397-443a-94b1-e5b8d3524fb4"
+              LastKnownName="下单"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f9f0e46d-9cad-4d4c-8630-40d73f4a1dc4"
+                  name="选择座位位置"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0a1316f4-33dd-4a48-8310-296ff4314dca"
+                  name="下单"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3fd83b38-056b-4c8f-a220-66bba117746c"
+            isDerived="false"
+            sourceEndRoleName="选择座位位置"
+            targetEndRoleName="服务员"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="e5193b48-9b3a-4b80-8973-b9849fdbfd83"
+              LastKnownName="服务员"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ee2e388a-6051-4cf1-abc4-de55a16d5a76"
+                  name="选择座位位置"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="83ff8c1d-180c-43c1-af7b-1c97d984aa06"
+                  name="服务员"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f5d7a006-15d6-4777-b183-6eb954372933"
+        name="下单"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="3ffb8205-415d-4bf8-904e-430fc7c4a4aa"
+            isDerived="false"
+            sourceEndRoleName="下单"
+            targetEndRoleName="厨师"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="fb5fb419-782e-489d-9c94-4e16b6f80dd4"
+              LastKnownName="厨师"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9747f71e-be66-4ce5-ad1a-18c1f6aef6ab"
+                  name="下单"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fb99c230-aa60-43ba-b04c-31d154d082e8"
+                  name="厨师"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="97e4fa64-c6bb-4573-98cf-94506475e067"
+        name="UseCase1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="fb5fb419-782e-489d-9c94-4e16b6f80dd4"
+        name="厨师"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="44c4b926-a439-4e36-96c8-6cf52a80439f"
+            isDerived="false"
+            sourceEndRoleName="厨师"
+            targetEndRoleName="做菜"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="505c9ae8-8e70-4df1-ab20-ec6b1159cc0b"
+              LastKnownName="做菜"
+              LastKnownLocation="ModelingProject_Manager.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="03bd03d6-dedf-46ee-b9b2-c49d95a2907a"
+                  name="厨师"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="85145b74-6a47-4787-aeb3-2793513144fa"
+                  name="做菜"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="505c9ae8-8e70-4df1-ab20-ec6b1159cc0b"
+        name="做菜"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8a320882-9a69-4383-9793-5f26dc9557ab"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="de537396-11ea-444e-8abe-d3f5baba72bd"
+        name="Sequence1"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <ownedCommentsInternal>
+          <comment
+            Id="50d86cb5-e972-47b5-ab41-3765285013d1">
+            <body>显示所有菜品
+</body>
+          </comment>
+          <comment
+            Id="8764127b-f6ae-460b-beff-aefbf4e5b91d">
+            <body>显示菜品信息</body>
+          </comment>
+          <comment
+            Id="09f2d72c-d8a7-4ef5-923f-4b7257c4432e">
+            <body>发送订单数据</body>
+          </comment>
+        </ownedCommentsInternal>
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="f827a00f-cf46-4f4e-bfed-c4738645a44f"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="3d5d68b4-2bb2-4ffa-affb-26c123d6ca72"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="c363c819-b961-40e9-b8ec-a79272c5229e"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="e27f2454-df19-4f76-9b5c-e0a2a6d86de3"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="c363c819-b961-40e9-b8ec-a79272c5229e"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="e786dd01-c912-430e-90e2-bf52124febd2"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProject_Manager.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5feb0560-e4f0-4940-b7a3-0f7f0da3509e"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="92d9fe9e-a83f-4187-b5a4-1d9a7b15cadb"
+                LastKnownName="菜单"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="e27f2454-df19-4f76-9b5c-e0a2a6d86de3"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="3d5d68b4-2bb2-4ffa-affb-26c123d6ca72"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f67857e9-9530-4768-a777-0286c19041a9"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProject_Manager.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="b588d91c-255d-4203-8b23-698d5e3e437f"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="256a4bb0-3972-4432-91a1-8a5ba3e9107c"
+                LastKnownName="系统"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="22fc90a0-a3eb-4722-9436-942ed5a236e0"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="d42816a7-6ce8-4992-9c7b-a83843f000f7"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="432e0682-2048-40f5-9e6b-1ccca2b44eb8"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="d42816a7-6ce8-4992-9c7b-a83843f000f7"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="f71b1a6b-d0f2-4a8b-9f8d-9e238b232dd8"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProject_Manager.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="256a4bb0-3972-4432-91a1-8a5ba3e9107c"
+                LastKnownName="系统"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="68325c77-6653-460b-a6ae-c9547ec9fc02"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="432e0682-2048-40f5-9e6b-1ccca2b44eb8"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="256a4bb0-3972-4432-91a1-8a5ba3e9107c"
+                LastKnownName="系统"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="0c7fcb39-b679-4dcd-a4ab-c96f56c7a2d4"
+            name="BehaviorExecutionSpecification4">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="b2379ec4-5f7c-4c6c-8e27-1a1d223e8ce6"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="f6adfe9e-f1a3-4fe3-a5fe-9ea9455b52a9"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="242ecbe5-88ff-4da3-9425-5b38226d59cf"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="f6adfe9e-f1a3-4fe3-a5fe-9ea9455b52a9"
+            name="ExecutionOccurrenceSpecification7">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="a084337a-1c9b-4b13-aa98-bde4defe5df9"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProject_Manager.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6485a4e1-591e-4eda-b312-113760f4e9a5"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="7b537c98-9d2a-4e02-a18c-0c07e931515d"
+                LastKnownName="食品"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="242ecbe5-88ff-4da3-9425-5b38226d59cf"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="22fc90a0-a3eb-4722-9436-942ed5a236e0"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="8f54a972-c7b3-493c-aba2-4d1419c25ce3"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProject_Manager.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="256a4bb0-3972-4432-91a1-8a5ba3e9107c"
+                LastKnownName="系统"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="b2379ec4-5f7c-4c6c-8e27-1a1d223e8ce6"
+            name="ExecutionOccurrenceSpecification8">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="3ae96ae0-cacf-4fb8-b266-4470756799eb"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProject_Manager.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="28802de8-24c8-4c05-b633-eaf7911e1eaa"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="b42daf58-6986-4ae3-b60d-6493cfafc67b"
+                LastKnownName="订单1"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="18b93a96-cba0-4fb6-a0f7-9abe87aa0aea"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="82bdbead-51d4-4740-b599-b01c2e27ed41"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="0ae57260-3b93-4148-8938-3d133bd2d712"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="82bdbead-51d4-4740-b599-b01c2e27ed41"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="34684d70-de06-4324-8977-8b979de3b988"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProject_Manager.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b42daf58-6986-4ae3-b60d-6493cfafc67b"
+                LastKnownName="订单1"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1fae3228-367e-49f9-90b2-e72d6f09d5ab"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="256a4bb0-3972-4432-91a1-8a5ba3e9107c"
+                LastKnownName="系统"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0ae57260-3b93-4148-8938-3d133bd2d712"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="b42daf58-6986-4ae3-b60d-6493cfafc67b"
+                LastKnownName="订单1"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="18b93a96-cba0-4fb6-a0f7-9abe87aa0aea"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="1900ac8b-2bd1-455b-afa0-061b5f888281"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ModelingProject_Manager.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="b42daf58-6986-4ae3-b60d-6493cfafc67b"
+                LastKnownName="订单1"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="0f6f5e9f-a2ed-47f6-abfb-c1825e67f378"
+            name="顾客"
+            isActor="false"
+            lifelineDisplayName="‎顾客‎">
+            <represents>
+              <propertyMoniker
+                Id="344331b5-5708-4405-b5e1-ff13e4a14d21"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </represents>
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="c363c819-b961-40e9-b8ec-a79272c5229e"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="3d5d68b4-2bb2-4ffa-affb-26c123d6ca72"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="68325c77-6653-460b-a6ae-c9547ec9fc02"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f6adfe9e-f1a3-4fe3-a5fe-9ea9455b52a9"
+                LastKnownName="ExecutionOccurrenceSpecification7"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="b2379ec4-5f7c-4c6c-8e27-1a1d223e8ce6"
+                LastKnownName="ExecutionOccurrenceSpecification8"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="256a4bb0-3972-4432-91a1-8a5ba3e9107c"
+            name="系统"
+            isActor="false"
+            lifelineDisplayName="‎系统‎">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="d42816a7-6ce8-4992-9c7b-a83843f000f7"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="22fc90a0-a3eb-4722-9436-942ed5a236e0"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="1fae3228-367e-49f9-90b2-e72d6f09d5ab"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="92d9fe9e-a83f-4187-b5a4-1d9a7b15cadb"
+            name="菜单"
+            isActor="false"
+            lifelineDisplayName="‎菜单‎">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="5feb0560-e4f0-4940-b7a3-0f7f0da3509e"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="7b537c98-9d2a-4e02-a18c-0c07e931515d"
+            name="食品"
+            isActor="false"
+            lifelineDisplayName="‎食品‎">
+            <topLevelOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="6485a4e1-591e-4eda-b312-113760f4e9a5"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="b42daf58-6986-4ae3-b60d-6493cfafc67b"
+            name="订单1"
+            isActor="false"
+            lifelineDisplayName="‎订单1‎">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="82bdbead-51d4-4740-b599-b01c2e27ed41"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="18b93a96-cba0-4fb6-a0f7-9abe87aa0aea"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="55d849dc-fc86-4765-a5c5-d80e932b1087"
+            name="选择菜品"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="68325c77-6653-460b-a6ae-c9547ec9fc02"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="432e0682-2048-40f5-9e6b-1ccca2b44eb8"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="15ebd99b-3d63-4021-8ee5-fae60c8060ae"
+            name="Message2"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5feb0560-e4f0-4940-b7a3-0f7f0da3509e"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="e27f2454-df19-4f76-9b5c-e0a2a6d86de3"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="fa02e24a-d21e-4b3c-9cb3-d44f1cbd9edc"
+            name="Message1"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="6485a4e1-591e-4eda-b312-113760f4e9a5"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="242ecbe5-88ff-4da3-9425-5b38226d59cf"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="33636984-320e-4175-9db5-d31c2d1a8e00"
+            name="Message3"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1fae3228-367e-49f9-90b2-e72d6f09d5ab"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0ae57260-3b93-4148-8938-3d133bd2d712"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+        <ownedAttributesInternal>
+          <property
+            Id="344331b5-5708-4405-b5e1-ff13e4a14d21"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <classMoniker
+                Id="ffcf7bf2-8d11-4895-bfe5-47b290acaadb"
+                LastKnownName="顾客"
+                LastKnownLocation="ModelingProject_Manager.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f71b1a6b-d0f2-4a8b-9f8d-9e238b232dd8"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="8f54a972-c7b3-493c-aba2-4d1419c25ce3"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="e786dd01-c912-430e-90e2-bf52124febd2"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="f67857e9-9530-4768-a777-0286c19041a9"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="a084337a-1c9b-4b13-aa98-bde4defe5df9"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="3ae96ae0-cacf-4fb8-b266-4470756799eb"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="34684d70-de06-4324-8977-8b979de3b988"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="1900ac8b-2bd1-455b-afa0-061b5f888281"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

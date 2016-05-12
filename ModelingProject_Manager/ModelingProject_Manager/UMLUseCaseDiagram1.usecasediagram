@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="43e356ea-849b-4aca-a012-a250ddea1c61" name="UMLUseCaseDiagram1" linkedPackageId="ae8e7667-4ae7-4a99-8224-a34fdf1a7101" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="b259c283-446a-41e7-872f-5b712b2be655">
+      <profileInstance Id="649fb585-a082-425a-bc16-ce99da8156c5" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="e4bbea49-c8c1-412e-baa6-c9bc45891093">
+      <profileInstance Id="609fbdbd-9630-489a-acac-8335108ed130" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="5663ab57-253e-4942-b105-de3e5a547a8a" name="顾客" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="df02548a-e5ba-4aa1-ac15-0b5054ab1d12" />
+        <targetEnds>
+          <association Id="b8157a9c-c452-482b-8b7d-c18999212850" isDerived="false" sourceEndRoleName="顾客" targetEndRoleName="选择座位位置" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2cac06eb-156a-4396-93f8-b8b86a7bfffb" LastKnownName="选择座位位置" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ce4524ad-6d99-4d82-bd04-277244df8617" name="顾客" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b4b122dc-4dc2-4a69-9abc-5e5fb57ff7bd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bbb64075-a1d0-4b0a-9e1f-1214bb128d74" name="选择座位位置" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="172ccca3-bd6c-433e-88c3-806e0acfe4dd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3b84e700-0cb4-4e98-bdf7-4b0c62d93a46" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6488ae74-5402-4b9f-8c20-b5ae9b5cca9e" name="下单" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="19fabb37-e397-443a-94b1-e5b8d3524fb4" />
+        <targetEnds>
+          <association Id="40cea83f-5c1b-4d81-8673-820daec1fac5" isDerived="false" sourceEndRoleName="下单" targetEndRoleName="服务员" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="23108c0c-6ca1-44a1-8880-f396a582086d" LastKnownName="服务员" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="86ae4ce9-967e-4a08-8e91-93a3bdc25a6d" name="下单" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="92070d6d-19cb-4be4-812f-08e956c0d429" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="383b8574-151f-494c-a049-b1868f1dd32a" name="服务员" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="27448f96-c72d-4156-8dc7-1a8b2f52f4c6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2cc03f87-ba7b-4e4d-bce6-c4cb2429167f" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="23108c0c-6ca1-44a1-8880-f396a582086d" name="服务员" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e5193b48-9b3a-4b80-8973-b9849fdbfd83" />
+        <targetEnds>
+          <association Id="99c8b845-f479-4277-8f3d-f332cd994d35" isDerived="false" sourceEndRoleName="服务员" targetEndRoleName="下单" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="aa279b17-6b33-4541-a550-5893ce5aa50c" LastKnownName="下单" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f9d37562-2981-4d3b-822d-d9c33ba188f8" name="服务员" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d54219bf-c064-4303-859a-eb6bc285a4b3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f8fc05d8-bda3-4891-b6c9-c14aade4003f" name="下单" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a1e67567-564a-4bcc-bd96-48c073f62a01" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="60e1e8cb-9f47-4148-9aed-b6daa4c4554b" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2cac06eb-156a-4396-93f8-b8b86a7bfffb" name="选择座位位置" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4bdfbf11-e111-4496-9161-70e599fd9539" />
+        <targetEnds>
+          <association Id="b2f5494c-3c22-4ee5-95de-8bdfdfd3742a" isDerived="false" sourceEndRoleName="选择座位位置" targetEndRoleName="下单" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6488ae74-5402-4b9f-8c20-b5ae9b5cca9e" LastKnownName="下单" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d1313baf-72c8-4c7e-9c20-e056fed0dbc9" name="选择座位位置" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f9f0e46d-9cad-4d4c-8630-40d73f4a1dc4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7eb89a00-e57d-4c90-9cb5-7e22ed6688ff" name="下单" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0a1316f4-33dd-4a48-8310-296ff4314dca" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0ccf3788-fc65-4c04-beac-3036c845a52e" />
+          </association>
+          <association Id="86e28a2f-aa25-4e5e-bf99-c3affed9dc19" isDerived="false" sourceEndRoleName="选择座位位置" targetEndRoleName="服务员" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="23108c0c-6ca1-44a1-8880-f396a582086d" LastKnownName="服务员" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c8732af4-e10c-4d2e-a6de-1e733819e4d8" name="选择座位位置" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ee2e388a-6051-4cf1-abc4-de55a16d5a76" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4b0a2008-eb16-43b9-b3ac-d8c062525849" name="服务员" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="83ff8c1d-180c-43c1-af7b-1c97d984aa06" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3fd83b38-056b-4c8f-a220-66bba117746c" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="aa279b17-6b33-4541-a550-5893ce5aa50c" name="下单" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f5d7a006-15d6-4777-b183-6eb954372933" />
+        <targetEnds>
+          <association Id="dcbc34e4-c92e-47b6-a0cf-e4c58e63e575" isDerived="false" sourceEndRoleName="下单" targetEndRoleName="厨师" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="50985512-2471-4879-960c-86b5f932893f" LastKnownName="厨师" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d7e0f8ce-a819-4422-b15f-9e73734ea4b7" name="下单" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9747f71e-be66-4ce5-ad1a-18c1f6aef6ab" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2107acf0-d9a3-4a21-9fd4-5f50113b3074" name="厨师" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fb99c230-aa60-43ba-b04c-31d154d082e8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3ffb8205-415d-4bf8-904e-430fc7c4a4aa" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="50985512-2471-4879-960c-86b5f932893f" name="厨师" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fb5fb419-782e-489d-9c94-4e16b6f80dd4" />
+        <targetEnds>
+          <association Id="0e19bc6b-d178-43ae-b853-e27345efad83" isDerived="false" sourceEndRoleName="厨师" targetEndRoleName="做菜" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a9e083e9-bd36-4edf-b477-f0f7876ea0cb" LastKnownName="做菜" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c9797943-f3a4-4c4e-a3bc-a2b0192ea28e" name="厨师" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="03bd03d6-dedf-46ee-b9b2-c49d95a2907a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3b471965-424e-40f2-abf7-bf23a119017b" name="做菜" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="85145b74-6a47-4787-aeb3-2793513144fa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="44c4b926-a439-4e36-96c8-6cf52a80439f" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a9e083e9-bd36-4edf-b477-f0f7876ea0cb" name="做菜" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="505c9ae8-8e70-4df1-ab20-ec6b1159cc0b" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="ae8e7667-4ae7-4a99-8224-a34fdf1a7101" name="ModelingProject_Manager">
+    <elementDefinition Id="9dea8561-014c-4a4d-9286-09b4c6dda8a7" />
+  </package>
+</useCaseModelRoot>

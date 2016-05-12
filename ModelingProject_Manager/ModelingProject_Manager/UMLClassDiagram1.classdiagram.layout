@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLClassDiagram1">
+  <logicalClassDesignerModelMoniker Id="b2aab808-0529-4e02-89f5-5e3086e2e20d" />
+  <nestedChildShapes>
+    <classShape Id="d39331c8-32cc-473e-a7cc-d7f5817d9adf" absoluteBounds="3.25, 1, 1.5, 1.5945231119791665" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="b738629d-efd3-4620-90ca-a2ba488cdadf" LastKnownName="服务员" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="21b09d42-3be7-4fa4-986f-622b368baf18" absoluteBounds="3.265, 1.3900000000000001, 1.4700000000000002, 0.54726155598958326" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="755b073d-8fed-4b1e-8ef1-55f5f3f8c378" absoluteBounds="3.265, 1.9472615559895834, 1.4700000000000002, 0.54726155598958326" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7389c6fe-9303-43a5-843a-69c29c40f5d6" absoluteBounds="1.125, 2.75, 1.5, 1.5945231119791661" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="9ba07bd4-9c87-4ee9-9e9d-4b3d30ebe0f6" LastKnownName="经理" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="fbb9f6ac-d6d9-4c84-ba25-c55a42df67cd" absoluteBounds="1.14, 3.14, 1.4700000000000002, 0.54726155598958326" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="b022ca69-bac9-4151-8d8c-9ca3bb5b4f46" absoluteBounds="1.14, 3.6972615559895834, 1.4700000000000002, 0.54726155598958315" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <generalizationConnector edgePoints="[(4 : 2.59452311197917); (4 : 2.84452311197917); (3 : 2.84452311197917); (3 : 2.375); (1.875 : 2.375); (1.875 : 2.75)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110">
+      <generalizationMoniker Id="691605ae-d068-4aef-9c74-e89cab7181a0" />
+      <relativeChildShapes />
+      <nodes>
+        <classShapeMoniker Id="d39331c8-32cc-473e-a7cc-d7f5817d9adf" />
+        <classShapeMoniker Id="7389c6fe-9303-43a5-843a-69c29c40f5d6" />
+      </nodes>
+    </generalizationConnector>
+    <classShape Id="575358bb-55c1-4423-929b-87a1cd6da6bf" absoluteBounds="6.375, 1, 1.5, 2.0970865885416665" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="cfc336a3-49d2-4bec-b658-36e59a3d417e" LastKnownName="会员" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="a56b6453-3f93-48f0-a70f-0e46f3e0deba" absoluteBounds="6.39, 1.3900000000000001, 1.4700000000000002, 0.88230387369791663" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="707a4367-6b98-4aab-90bf-29f8a815839c" absoluteBounds="6.39, 2.2823038736979164, 1.4700000000000002, 0.71478271484375" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d82ecede-dfd7-4bf0-8294-8e8fc2900d45" absoluteBounds="3.875, 3.875, 1.5, 1.427001953125" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="809f4c74-2f78-4408-b656-923e253e189b" LastKnownName="食谱" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="dc762bd6-c725-45e0-a484-5ec2cfb33e8d" absoluteBounds="3.89, 4.265, 1.4700000000000002, 0.21221923828125" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="3d897ab2-fdd2-4d82-b54c-2d9ccaa62c9f" absoluteBounds="3.89, 4.48721923828125, 1.4700000000000002, 0.71478271484375" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

@@ -91,6 +91,14 @@ BOOL CManagementSystemApp::InitInstance()
 
 	//hnd_thread=(HANDLE)_beginthreadex(0,NULL,&CManagementSystemApp::showGuideUI,NULL,0,&threadID);
 
+	//∆Ù∂ØΩÁ√Ê
+	CGuideUI guideDlg;
+	guideDlg.Create(IDB_PIC_DINNER);
+	guideDlg.CenterWindow();
+	//guideDlg.UpdateWindow();
+	Sleep(2500);
+	guideDlg.DestroyWindow();
+
 
 	CManagementSystemDlg dlg;
 	m_pMainWnd = &dlg;
