@@ -73,6 +73,7 @@ BEGIN_MESSAGE_MAP(CManagementSystemDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BTN_TEST, &CManagementSystemDlg::OnBnClickedBtnTest)
 	ON_WM_ERASEBKGND()
 	ON_WM_SIZE()
+	ON_BN_CLICKED(IDC_BTN_SURE, &CManagementSystemDlg::OnBnClickedBtnSure)
 END_MESSAGE_MAP()
 
 
@@ -209,16 +210,35 @@ void CManagementSystemDlg::OnSize(UINT nType, int cx, int cy)
 	CWnd * pwnd = GetDlgItem(IDOK);
 //	if(pwnd->GetSafeHwnd())
 //		pwnd->MoveWindow(cx-20,);
-	pwnd->SetWindowPos(NULL,1450,8,0,0,SWP_NOZORDER | SWP_NOSIZE);
-
+	pwnd->SetWindowPos(NULL,1425,11,0,0,SWP_NOZORDER | SWP_NOSIZE);
 
 	CWnd * pwnd2=GetDlgItem(IDC_MENU);
-	pwnd2->SetWindowPos(NULL,0,0,1200,800,SWP_NOMOVE);
+	pwnd2->SetWindowPos(NULL,0,0,1200,750,SWP_NOMOVE);
 
-	CWnd * pwnd3=GetDlgItem(IDC_BTN_ORDER);
-	pwnd3->SetWindowPos(NULL,250,15,0,0,SWP_NOZORDER | SWP_NOSIZE);
+	CWnd * pwnd3=GetDlgItem(IDC_BTN_SURE);
+	pwnd3->SetWindowPos(NULL,1250,900,0,0,SWP_NOZORDER | SWP_NOSIZE);
+
 
 	// TODO: 在此处添加消息处理程序代码
 }
 
 
+
+
+void CManagementSystemDlg::OnBnClickedBtnSure()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	
+}
+
+
+//创建控件并显示图片
+template <typename T>
+T CManagementSystemDlg::createCtrl(T str,CRect Coord,UINT IDC)
+{
+	T * p=NULL;
+	p = new T;
+	ASSERT_VALID(p);
+	T->Create(str,  WS_CHILD|WS_VISIBLE|SS_CENTER, Coord, this, IDC);
+	return p;
+}
