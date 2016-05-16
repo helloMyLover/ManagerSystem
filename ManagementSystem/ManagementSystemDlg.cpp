@@ -114,9 +114,18 @@ BOOL CManagementSystemDlg::OnInitDialog()
 	m_bitmap.LoadBitmap(IDB_PIC_BACKGROUND);
 	m_bitmap.GetBitmap(&bmp);
 	SetWindowPos(this,0,0,bmp.bmWidth,bmp.bmHeight,SWP_NOZORDER|SWP_NOMOVE);  //
+
+	//先加载两个菜式，作为测试，后续移除
+	CRect rc=CRect(20,30,15,16);
+	//UINT ID=1314;
+
+	CStatic pic;
+	pic.Create(_T("pic1"),WS_CHILD|WS_VISIBLE|SS_BITMAP|SS_CENTERIMAGE,CRect(80,80,150,50),this);
+	if(pic.GetBitmap() ==NULL)
+		pic.SetBitmap(::LoadBitmap(NULL, MAKEINTRESOURCE(IDB_NOFOOD)));
+	pic.ShowWindow(TRUE);
+	
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
-
-
 }
 
 void CManagementSystemDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -184,18 +193,17 @@ void CManagementSystemDlg::OnBnClickedBtnTest()
 
 
 
+//添加背景
 BOOL CManagementSystemDlg::OnEraseBkgnd(CDC* pDC)
 {
 	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	CDC mendc;
 	mendc.CreateCompatibleDC(pDC);
-
 	CBitmap * pOldBitmap = mendc.SelectObject(&m_bitmap);
 	pDC->BitBlt(0,0,bmp.bmWidth,bmp.bmHeight,&mendc,0,0,SRCCOPY);
-	mendc.SelectObject(pOldBitmap);
+	mendc.SelectObject(&pOldBitmap);
 	m_bitmap.DeleteObject();
 	mendc.DeleteDC();
-
 	return true;
 	//return CDialogEx::OnEraseBkgnd(pDC);
 }
@@ -234,11 +242,11 @@ void CManagementSystemDlg::OnBnClickedBtnSure()
 
 //创建控件并显示图片
 template <typename T>
-T CManagementSystemDlg::createCtrl(T str,CRect Coord,UINT IDC)
+void CManagementSystemDlg::createCtrl(T * p,CRect Coord,UINT IDC)
 {
-	T * p=NULL;
+	p=NULL;
 	p = new T;
 	ASSERT_VALID(p);
-	T->Create(str,  WS_CHILD|WS_VISIBLE|SS_CENTER, Coord, this, IDC);
-	return p;
+	p->Create(T,  WS_CHILD|WS_VISIBLE|SS_CENTER, Coord, this, IDC);
+	
 }

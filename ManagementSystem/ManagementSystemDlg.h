@@ -36,7 +36,7 @@ public:
 	BITMAP bmp;
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnBnClickedBtnSure();
-	template <typename T>T createCtrl(T str,CRect Coord,UINT IDC);
+	template <typename T>void createCtrl(T* STR,CRect Coord,UINT IDC);
 	
 };
 
