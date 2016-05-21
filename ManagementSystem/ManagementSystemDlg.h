@@ -4,7 +4,8 @@
 
 #pragma once
 
-
+#include <vector>
+using namespace std;
 // CManagementSystemDlg 对话框
 class CManagementSystemDlg : public CDialogEx
 {
@@ -38,6 +39,20 @@ public:
 	afx_msg void OnBnClickedBtnSure();
 	template <typename T>void createCtrl(T* STR,CRect Coord,UINT IDC);
 	
+
+	//定义一个绘图变量
+	CBitmap mBitmapDrawFood;
+	vector<CStatic> m_pic;
+	//定义一个描述性文字的文本变量
+	vector<CStatic> m_text;
+	//定义一个显示数量的文本变量
+	vector<CStatic> m_num;
+	//定义一个增加数量的按钮
+	vector<CButton> m_btn;
+	
+
+	void createFoodPicCtrl();
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };
 
 

@@ -1,5 +1,5 @@
-
-// ManagementSystemDlg.cpp : ÊµÏÖÎÄ¼ş
+ï»¿
+// ManagementSystemDlg.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -14,26 +14,28 @@
 #endif
 #define  test 1
 
+#define IDC_TEXT_FOOD
+
 #if test
 #include "GuideUI.h"
 #include "Food.h"
 #endif
 
 
-// ÓÃÓÚÓ¦ÓÃ³ÌĞò¡°¹ØÓÚ¡±²Ëµ¥ÏîµÄ CAboutDlg ¶Ô»°¿ò
+// ç”¨äºåº”ç”¨ç¨‹åºâ€œå…³äºâ€èœå•é¡¹çš„ CAboutDlg å¯¹è¯æ¡†
 
 class CAboutDlg : public CDialogEx
 {
 public:
 	CAboutDlg();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_ABOUTBOX };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
-// ÊµÏÖ
+// å®ç°
 protected:
 	DECLARE_MESSAGE_MAP()
 };
@@ -52,7 +54,7 @@ END_MESSAGE_MAP()
 
 
 
-// CManagementSystemDlg ¶Ô»°¿ò
+// CManagementSystemDlg å¯¹è¯æ¡†
 
 
 CManagementSystemDlg::CManagementSystemDlg(CWnd* pParent /*=NULL*/)
@@ -74,18 +76,19 @@ BEGIN_MESSAGE_MAP(CManagementSystemDlg, CDialogEx)
 	ON_WM_ERASEBKGND()
 	ON_WM_SIZE()
 	ON_BN_CLICKED(IDC_BTN_SURE, &CManagementSystemDlg::OnBnClickedBtnSure)
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
-// CManagementSystemDlg ÏûÏ¢´¦Àí³ÌĞò
+// CManagementSystemDlg æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 BOOL CManagementSystemDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ½«¡°¹ØÓÚ...¡±²Ëµ¥ÏîÌí¼Óµ½ÏµÍ³²Ëµ¥ÖĞ¡£
+	// å°†â€œå…³äº...â€èœå•é¡¹æ·»åŠ åˆ°ç³»ç»Ÿèœå•ä¸­ã€‚
 
-	// IDM_ABOUTBOX ±ØĞëÔÚÏµÍ³ÃüÁî·¶Î§ÄÚ¡£
+	// IDM_ABOUTBOX å¿…é¡»åœ¨ç³»ç»Ÿå‘½ä»¤èŒƒå›´å†…ã€‚
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -103,29 +106,23 @@ BOOL CManagementSystemDlg::OnInitDialog()
 		}
 	}
 
-	// ÉèÖÃ´Ë¶Ô»°¿òµÄÍ¼±ê¡£µ±Ó¦ÓÃ³ÌĞòÖ÷´°¿Ú²»ÊÇ¶Ô»°¿òÊ±£¬¿ò¼Ü½«×Ô¶¯
-	//  Ö´ĞĞ´Ë²Ù×÷
-	SetIcon(m_hIcon, TRUE);			// ÉèÖÃ´óÍ¼±ê
-	SetIcon(m_hIcon, FALSE);		// ÉèÖÃĞ¡Í¼±ê
+	// è®¾ç½®æ­¤å¯¹è¯æ¡†çš„å›¾æ ‡ã€‚å½“åº”ç”¨ç¨‹åºä¸»çª—å£ä¸æ˜¯å¯¹è¯æ¡†æ—¶ï¼Œæ¡†æ¶å°†è‡ªåŠ¨
+	//  æ‰§è¡Œæ­¤æ“ä½œ
+	SetIcon(m_hIcon, TRUE);			// è®¾ç½®å¤§å›¾æ ‡
+	SetIcon(m_hIcon, FALSE);		// è®¾ç½®å°å›¾æ ‡
 
-	// TODO: ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ é¢å¤–çš„åˆå§‹åŒ–ä»£ç 
 
-	//¸Ä±ä´°¿Ú´óĞ¡
+	//æ”¹å˜çª—å£å¤§å°
 	m_bitmap.LoadBitmap(IDB_PIC_BACKGROUND);
 	m_bitmap.GetBitmap(&bmp);
 	SetWindowPos(this,0,0,bmp.bmWidth,bmp.bmHeight,SWP_NOZORDER|SWP_NOMOVE);  //
 
-	//ÏÈ¼ÓÔØÁ½¸ö²ËÊ½£¬×÷Îª²âÊÔ£¬ºóĞøÒÆ³ı
-	CRect rc=CRect(20,30,15,16);
-	//UINT ID=1314;
+	//å…ˆåŠ è½½ä¸¤ä¸ªèœå¼ï¼Œä½œä¸ºæµ‹è¯•ï¼Œåç»­ç§»é™¤
 
-	CStatic pic;
-	pic.Create(_T("pic1"),WS_CHILD|WS_VISIBLE|SS_BITMAP|SS_CENTERIMAGE,CRect(80,80,150,50),this);
-	if(pic.GetBitmap() ==NULL)
-		pic.SetBitmap(::LoadBitmap(NULL, MAKEINTRESOURCE(IDB_NOFOOD)));
-	pic.ShowWindow(TRUE);
-	
-	return TRUE;  // ³ı·Ç½«½¹µãÉèÖÃµ½¿Ø¼ş£¬·ñÔò·µ»Ø TRUE
+	createFoodPicCtrl();
+
+	return TRUE;  // é™¤éå°†ç„¦ç‚¹è®¾ç½®åˆ°æ§ä»¶ï¼Œå¦åˆ™è¿”å› TRUE
 }
 
 void CManagementSystemDlg::OnSysCommand(UINT nID, LPARAM lParam)
@@ -141,19 +138,19 @@ void CManagementSystemDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// Èç¹ûÏò¶Ô»°¿òÌí¼Ó×îĞ¡»¯°´Å¥£¬ÔòĞèÒªÏÂÃæµÄ´úÂë
-//  À´»æÖÆ¸ÃÍ¼±ê¡£¶ÔÓÚÊ¹ÓÃÎÄµµ/ÊÓÍ¼Ä£ĞÍµÄ MFC Ó¦ÓÃ³ÌĞò£¬
-//  Õâ½«ÓÉ¿ò¼Ü×Ô¶¯Íê³É¡£
+// å¦‚æœå‘å¯¹è¯æ¡†æ·»åŠ æœ€å°åŒ–æŒ‰é’®ï¼Œåˆ™éœ€è¦ä¸‹é¢çš„ä»£ç 
+//  æ¥ç»˜åˆ¶è¯¥å›¾æ ‡ã€‚å¯¹äºä½¿ç”¨æ–‡æ¡£/è§†å›¾æ¨¡å‹çš„ MFC åº”ç”¨ç¨‹åºï¼Œ
+//  è¿™å°†ç”±æ¡†æ¶è‡ªåŠ¨å®Œæˆã€‚
 
 void CManagementSystemDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ÓÃÓÚ»æÖÆµÄÉè±¸ÉÏÏÂÎÄ
+		CPaintDC dc(this); // ç”¨äºç»˜åˆ¶çš„è®¾å¤‡ä¸Šä¸‹æ–‡
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Ê¹Í¼±êÔÚ¹¤×÷Çø¾ØĞÎÖĞ¾ÓÖĞ
+		// ä½¿å›¾æ ‡åœ¨å·¥ä½œåŒºçŸ©å½¢ä¸­å±…ä¸­
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -161,7 +158,7 @@ void CManagementSystemDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// »æÖÆÍ¼±ê
+		// ç»˜åˆ¶å›¾æ ‡
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -170,8 +167,8 @@ void CManagementSystemDlg::OnPaint()
 	}
 }
 
-//µ±ÓÃ»§ÍÏ¶¯×îĞ¡»¯´°¿ÚÊ±ÏµÍ³µ÷ÓÃ´Ëº¯ÊıÈ¡µÃ¹â±ê
-//ÏÔÊ¾¡£
+//å½“ç”¨æˆ·æ‹–åŠ¨æœ€å°åŒ–çª—å£æ—¶ç³»ç»Ÿè°ƒç”¨æ­¤å‡½æ•°å–å¾—å…‰æ ‡
+//æ˜¾ç¤ºã€‚
 HCURSOR CManagementSystemDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
@@ -180,7 +177,7 @@ HCURSOR CManagementSystemDlg::OnQueryDragIcon()
 
 void CManagementSystemDlg::OnBnClickedBtnTest()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 #if  test
 	CEmployee dlg;
 	dlg.DoModal();
@@ -191,12 +188,10 @@ void CManagementSystemDlg::OnBnClickedBtnTest()
 }
 
 
-
-
-//Ìí¼Ó±³¾°
+//æ·»åŠ èƒŒæ™¯
 BOOL CManagementSystemDlg::OnEraseBkgnd(CDC* pDC)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼
 	CDC mendc;
 	mendc.CreateCompatibleDC(pDC);
 	CBitmap * pOldBitmap = mendc.SelectObject(&m_bitmap);
@@ -220,14 +215,15 @@ void CManagementSystemDlg::OnSize(UINT nType, int cx, int cy)
 //		pwnd->MoveWindow(cx-20,);
 	pwnd->SetWindowPos(NULL,1425,11,0,0,SWP_NOZORDER | SWP_NOSIZE);
 
-	CWnd * pwnd2=GetDlgItem(IDC_MENU);
-	pwnd2->SetWindowPos(NULL,0,0,1200,750,SWP_NOMOVE);
+	//CWnd * pwnd2=GetDlgItem(IDC_MENU);
+	//pwnd2->SetWindowPos(NULL,0,0,1200,750,SWP_NOMOVE);
 
 	CWnd * pwnd3=GetDlgItem(IDC_BTN_SURE);
 	pwnd3->SetWindowPos(NULL,1250,900,0,0,SWP_NOZORDER | SWP_NOSIZE);
 
+	
 
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 }
 
 
@@ -235,18 +231,76 @@ void CManagementSystemDlg::OnSize(UINT nType, int cx, int cy)
 
 void CManagementSystemDlg::OnBnClickedBtnSure()
 {
-	// TODO: ÔÚ´ËÌí¼Ó¿Ø¼şÍ¨Öª´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤æ·»åŠ æ§ä»¶é€šçŸ¥å¤„ç†ç¨‹åºä»£ç 
 	
 }
 
 
-//´´½¨¿Ø¼ş²¢ÏÔÊ¾Í¼Æ¬
-template <typename T>
-void CManagementSystemDlg::createCtrl(T * p,CRect Coord,UINT IDC)
+
+void CManagementSystemDlg::createFoodPicCtrl()
 {
-	p=NULL;
-	p = new T;
-	ASSERT_VALID(p);
-	p->Create(T,  WS_CHILD|WS_VISIBLE|SS_CENTER, Coord, this, IDC);
+	//è¯»å–æ•°æ®åº“ç°æœ‰é£Ÿè°± åŠ è½½
+	CPoint picPoint;
+	CPoint txtPoint;
+	CPoint numPoint;
+	CPoint btnPoint;
+
 	
+
+	mBitmapDrawFood.LoadBitmap(IDB_FOOD);
+	//CRectå‚æ•°1å’Œ2ç¡®å®šæ§ä»¶å³ä¸Šè§’è½ç‚¹åœ¨å“ªï¼Œå‚æ•°2å’Œ3ç¡®å®šæ§ä»¶çš„å¤§å°
+	for (int i=0;i<5;i++)
+	{
+		CStatic m_picTemp;
+		picPoint.x=200;
+		picPoint.y=200+20*i;
+
+		m_picTemp.Create(_T("pic1"),WS_CHILD|WS_VISIBLE|SS_BITMAP|SS_CENTERIMAGE,CRect(picPoint.x,picPoint.y,picPoint.x+121,picPoint.y+100),this,6667+4*i);
+		if(m_picTemp.GetBitmap() ==NULL)
+			m_picTemp.SetBitmap((HBITMAP)mBitmapDrawFood);
+		//è®¾ç½®ä¸ºä½å›¾æ¨¡å¼ï¼Œä¸å¯å»æ‰
+		m_picTemp.ModifyStyle(0xf,SS_BITMAP);
+		m_pic.push_back(m_picTemp);
+		m_pic[i].ShowWindow(TRUE);
+		
+		txtPoint.x=picPoint.x+121+10;
+		txtPoint.y=picPoint.y+20;  // +10ä½ç½®è°ƒæ•´
+
+		m_text[i].Create(_T("foodTip"),WS_CHILD|WS_VISIBLE,CRect(txtPoint.x,txtPoint.y,txtPoint.x+800,txtPoint.y+20),this,6668+4*i);
+		m_text[i].SetWindowText(_T("ç…ç‰›æŸ³     SearedÂ beefÂ fillet  / cepsÂ mushroomÂ ragout  /Â garlicÂ cheeseÂ mashÂ potato"));
+		//	UpdateData(TRUE);
+
+		numPoint.x=txtPoint.x+800+100;  //800ä¸ºå‰é¢ä¸€é¡¹çš„å¤§å°ï¼Œ
+		numPoint.y=txtPoint.y;
+
+		m_num[i].Create(_T("num"),WS_VISIBLE|WS_CHILD,CRect(numPoint.x,numPoint.y,numPoint.x+10,numPoint.y+20),this,6669+4*i);
+		m_num[i].SetWindowText(_T("0"));
+
+		btnPoint.x=txtPoint.x+800+100+100;
+		btnPoint.y=txtPoint.y;
+
+		m_btn[i].Create(_T("+"),WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,CRect(btnPoint.x,btnPoint.y,btnPoint.x+50,btnPoint.y+20),this,4*6670);
+		m_btn[i].ShowWindow(SW_SHOW);
+	}
+
+
+
+}
+
+
+HBRUSH CManagementSystemDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	// TODO:  åœ¨æ­¤æ›´æ”¹ DC çš„ä»»ä½•ç‰¹æ€§
+
+	if (nCtlColor == CTLCOLOR_STATIC)
+	{
+		pDC->SetTextColor(RGB(255,215,0)); //è®¾ç½®å­—ä½“é¢œè‰²
+		pDC->SetBkMode(TRANSPARENT);      //è®¾ç½®èƒŒæ™¯é€æ˜
+		return HBRUSH(GetStockObject(HOLLOW_BRUSH));
+	}
+
+	// TODO:  å¦‚æœé»˜è®¤çš„ä¸æ˜¯æ‰€éœ€ç”»ç¬”ï¼Œåˆ™è¿”å›å¦ä¸€ä¸ªç”»ç¬”
+	return hbr;
 }

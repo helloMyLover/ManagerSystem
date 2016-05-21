@@ -18,7 +18,7 @@ CEmployee::CEmployee(CWnd* pParent /*=NULL*/)
 
 CEmployee::~CEmployee()
 {
-	
+
 }
 
 void CEmployee::DoDataExchange(CDataExchange* pDX)

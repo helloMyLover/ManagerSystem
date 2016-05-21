@@ -20,4 +20,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedBtnOrder();
+	afx_msg void OnBnClickedButton1();
+	virtual BOOL OnInitDialog();
+
+	CStatic m_static;
+	CBitmap m_bitmap;
 };
