@@ -61,6 +61,7 @@ CManagementSystemDlg::CManagementSystemDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CManagementSystemDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	
 }
 
 void CManagementSystemDlg::DoDataExchange(CDataExchange* pDX)
@@ -245,46 +246,46 @@ void CManagementSystemDlg::createFoodPicCtrl()
 	CPoint numPoint;
 	CPoint btnPoint;
 
+	CStatic * m_txt=new CStatic[5];
+	//for(int i=0;i<5;i++)
+	//	m_text.push_back(m_txt[i]);
 	
 
+	//m_pic.resize(5);
 	mBitmapDrawFood.LoadBitmap(IDB_FOOD);
 	//CRect参数1和2确定控件右上角落点在哪，参数2和3确定控件的大小
 	for (int i=0;i<5;i++)
 	{
-		CStatic m_picTemp;
 		picPoint.x=200;
-		picPoint.y=200+20*i;
+		picPoint.y=200;
 
-		m_picTemp.Create(_T("pic1"),WS_CHILD|WS_VISIBLE|SS_BITMAP|SS_CENTERIMAGE,CRect(picPoint.x,picPoint.y,picPoint.x+121,picPoint.y+100),this,6667+4*i);
-		if(m_picTemp.GetBitmap() ==NULL)
-			m_picTemp.SetBitmap((HBITMAP)mBitmapDrawFood);
-		//设置为位图模式，不可去掉
-		m_picTemp.ModifyStyle(0xf,SS_BITMAP);
-		m_pic.push_back(m_picTemp);
-		m_pic[i].ShowWindow(TRUE);
-		
+	//	m_pic[i].Create(_T("pic1"),WS_CHILD|WS_VISIBLE|SS_BITMAP|SS_CENTERIMAGE,CRect(picPoint.x,picPoint.y,picPoint.x+121,picPoint.y+100),this,6667+4*i);
+	//	if(m_pic[i].GetBitmap() ==NULL)
+	//		m_pic[i].SetBitmap((HBITMAP)mBitmapDrawFood);
+	//	//设置为位图模式，不可去掉
+	//	m_pic[i].ModifyStyle(0xf,SS_BITMAP);
+	////	m_pic[].push_back(m_picTemp);
+	//	m_pic[i].ShowWindow(TRUE);
+
 		txtPoint.x=picPoint.x+121+10;
-		txtPoint.y=picPoint.y+20;  // +10位置调整
+		txtPoint.y=picPoint.y+20+i*100;  // +10位置调整
 
-		m_text[i].Create(_T("foodTip"),WS_CHILD|WS_VISIBLE,CRect(txtPoint.x,txtPoint.y,txtPoint.x+800,txtPoint.y+20),this,6668+4*i);
-		m_text[i].SetWindowText(_T("煎牛柳     Seared beef fillet  / ceps mushroom ragout  / garlic cheese mash potato"));
+		m_txt[i].Create(_T("foodTip"),WS_CHILD|WS_VISIBLE,CRect(txtPoint.x,txtPoint.y,txtPoint.x+800,txtPoint.y+20),this,6668+i);
+		m_txt[i].SetWindowText(_T("煎牛柳     Seared beef fillet  / ceps mushroom ragout  / garlic cheese mash potato"));
 		//	UpdateData(TRUE);
 
-		numPoint.x=txtPoint.x+800+100;  //800为前面一项的大小，
-		numPoint.y=txtPoint.y;
+		//numPoint.x=txtPoint.x+800+100;  //800为前面一项的大小，
+		//numPoint.y=txtPoint.y;
 
-		m_num[i].Create(_T("num"),WS_VISIBLE|WS_CHILD,CRect(numPoint.x,numPoint.y,numPoint.x+10,numPoint.y+20),this,6669+4*i);
-		m_num[i].SetWindowText(_T("0"));
+		//m_num[i].Create(_T("num"),WS_VISIBLE|WS_CHILD,CRect(numPoint.x,numPoint.y,numPoint.x+10,numPoint.y+20),this,6669+4*i);
+		//m_num[i].SetWindowText(_T("0"));
 
-		btnPoint.x=txtPoint.x+800+100+100;
-		btnPoint.y=txtPoint.y;
+		//btnPoint.x=txtPoint.x+800+100+100;
+		//btnPoint.y=txtPoint.y;
 
-		m_btn[i].Create(_T("+"),WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,CRect(btnPoint.x,btnPoint.y,btnPoint.x+50,btnPoint.y+20),this,4*6670);
-		m_btn[i].ShowWindow(SW_SHOW);
+		//m_btn[i].Create(_T("+"),WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,CRect(btnPoint.x,btnPoint.y,btnPoint.x+50,btnPoint.y+20),this,4*6670);
+		//m_btn[i].ShowWindow(SW_SHOW);
 	}
-
-
-
 }
 
 

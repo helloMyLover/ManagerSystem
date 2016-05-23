@@ -39,7 +39,7 @@ public:
 	afx_msg void OnBnClickedBtnSure();
 	template <typename T>void createCtrl(T* STR,CRect Coord,UINT IDC);
 	
-
+public:
 	//定义一个绘图变量
 	CBitmap mBitmapDrawFood;
 	vector<CStatic> m_pic;
@@ -50,7 +50,8 @@ public:
 	//定义一个增加数量的按钮
 	vector<CButton> m_btn;
 	
-
+	CStatic m_picTemp;
+	//CStatic m_txt;
 	void createFoodPicCtrl();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };
