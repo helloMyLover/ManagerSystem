@@ -19,7 +19,6 @@ public:
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
 
-
 // 实现
 protected:
 	HICON m_hIcon;
@@ -42,18 +41,20 @@ public:
 public:
 	//定义一个绘图变量
 	CBitmap mBitmapDrawFood;
-	vector<CStatic> m_pic;
+	vector<CStatic *> m_pic;
 	//定义一个描述性文字的文本变量
-	vector<CStatic> m_text;
+	vector<CStatic *> m_text;
 	//定义一个显示数量的文本变量
-	vector<CStatic> m_num;
+	vector<CStatic *> m_num;
 	//定义一个增加数量的按钮
-	vector<CButton> m_btn;
+	vector<CButton *> m_btn;
 	
-	CStatic m_picTemp;
+	//CStatic m_picTemp;
 	//CStatic m_txt;
+//	CStatic * m_txt;
 	void createFoodPicCtrl();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	virtual BOOL DestroyWindow();
 };
 
 

@@ -7,6 +7,8 @@
 #include "ManagementSystemDlg.h"
 #include "afxdialogex.h"
 #include "Employee.h"
+#include <exception>
+#include <Windows.h>
 
 
 #ifdef _DEBUG
@@ -61,6 +63,7 @@ CManagementSystemDlg::CManagementSystemDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CManagementSystemDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	
 	
 }
 
@@ -246,45 +249,52 @@ void CManagementSystemDlg::createFoodPicCtrl()
 	CPoint numPoint;
 	CPoint btnPoint;
 
-	CStatic * m_txt=new CStatic[5];
-	//for(int i=0;i<5;i++)
-	//	m_text.push_back(m_txt[i]);
-	
 
-	//m_pic.resize(5);
 	mBitmapDrawFood.LoadBitmap(IDB_FOOD);
 	//CRect参数1和2确定控件右上角落点在哪，参数2和3确定控件的大小
-	for (int i=0;i<5;i++)
+	for ( int i=0 ; i<5 ; i++ )
 	{
+		CStatic * m_txtTemp=new CStatic;
+		CStatic * m_picTemp=new CStatic;
+		CStatic * m_numTemp=new CStatic;
+		CButton * m_btnTemp=new CButton;
 		picPoint.x=200;
 		picPoint.y=200;
 
-	//	m_pic[i].Create(_T("pic1"),WS_CHILD|WS_VISIBLE|SS_BITMAP|SS_CENTERIMAGE,CRect(picPoint.x,picPoint.y,picPoint.x+121,picPoint.y+100),this,6667+4*i);
-	//	if(m_pic[i].GetBitmap() ==NULL)
-	//		m_pic[i].SetBitmap((HBITMAP)mBitmapDrawFood);
-	//	//设置为位图模式，不可去掉
-	//	m_pic[i].ModifyStyle(0xf,SS_BITMAP);
-	////	m_pic[].push_back(m_picTemp);
-	//	m_pic[i].ShowWindow(TRUE);
+		//创建图片控件
+		m_picTemp->Create(_T("pic1"),WS_CHILD|WS_VISIBLE|SS_BITMAP|SS_CENTERIMAGE,CRect(picPoint.x,picPoint.y,picPoint.x+121,picPoint.y+100),this,6667+4*i);
+		m_pic.push_back(m_picTemp);
+		if(m_pic[i]->GetBitmap() ==NULL)
+			m_pic[i]->SetBitmap((HBITMAP)mBitmapDrawFood);
+		//设置为位图模式，不可去掉
+		m_pic[i]->ModifyStyle(0xf,SS_BITMAP);
+		m_pic[i]->ShowWindow(TRUE);
 
+
+		//创建文字控件
 		txtPoint.x=picPoint.x+121+10;
-		txtPoint.y=picPoint.y+20+i*100;  // +10位置调整
-
-		m_txt[i].Create(_T("foodTip"),WS_CHILD|WS_VISIBLE,CRect(txtPoint.x,txtPoint.y,txtPoint.x+800,txtPoint.y+20),this,6668+i);
-		m_txt[i].SetWindowText(_T("煎牛柳     Seared beef fillet  / ceps mushroom ragout  / garlic cheese mash potato"));
+		txtPoint.y=picPoint.y+20+i*100;  // +20是相对于图片的位置偏移，100是每行的间距  
+		
+		m_txtTemp->Create(_T("foodTip"),WS_CHILD|WS_VISIBLE,CRect(txtPoint.x,txtPoint.y,txtPoint.x+800,txtPoint.y+20),this,6668+i);
+		m_text.push_back(m_txtTemp);
+		m_text[i]->SetWindowText(_T("煎牛柳     Seared beef fillet  / ceps mushroom ragout  / garlic cheese mash potato"));
 		//	UpdateData(TRUE);
 
-		//numPoint.x=txtPoint.x+800+100;  //800为前面一项的大小，
-		//numPoint.y=txtPoint.y;
+		//创建数字控件
+		numPoint.x=txtPoint.x+800+100;  //800为前面一项的大小，
+		numPoint.y=txtPoint.y;
 
-		//m_num[i].Create(_T("num"),WS_VISIBLE|WS_CHILD,CRect(numPoint.x,numPoint.y,numPoint.x+10,numPoint.y+20),this,6669+4*i);
-		//m_num[i].SetWindowText(_T("0"));
+		m_numTemp->Create(_T("num"),WS_VISIBLE|WS_CHILD,CRect(numPoint.x,numPoint.y,numPoint.x+10,numPoint.y+20),this,6669+4*i);
+		m_num.push_back(m_numTemp);
+		m_num[i]->SetWindowText(_T("0"));
 
-		//btnPoint.x=txtPoint.x+800+100+100;
-		//btnPoint.y=txtPoint.y;
+		//创建按钮控件
+		btnPoint.x=txtPoint.x+800+100+100;
+		btnPoint.y=txtPoint.y;
 
-		//m_btn[i].Create(_T("+"),WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,CRect(btnPoint.x,btnPoint.y,btnPoint.x+50,btnPoint.y+20),this,4*6670);
-		//m_btn[i].ShowWindow(SW_SHOW);
+		m_btnTemp->Create(_T("+"),WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,CRect(btnPoint.x,btnPoint.y,btnPoint.x+50,btnPoint.y+20),this,4*6670);
+		m_btn.push_back(m_btnTemp);
+		m_btn[i]->ShowWindow(SW_SHOW);
 	}
 }
 
@@ -294,7 +304,6 @@ HBRUSH CManagementSystemDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	HBRUSH hbr = CDialogEx::OnCtlColor(pDC, pWnd, nCtlColor);
 
 	// TODO:  在此更改 DC 的任何特性
-
 	if (nCtlColor == CTLCOLOR_STATIC)
 	{
 		pDC->SetTextColor(RGB(255,215,0)); //设置字体颜色
@@ -304,4 +313,28 @@ HBRUSH CManagementSystemDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 
 	// TODO:  如果默认的不是所需画笔，则返回另一个画笔
 	return hbr;
+}
+
+
+BOOL CManagementSystemDlg::DestroyWindow()
+{
+	// TODO: 在此添加专用代码和/或调用基类
+	  //避免内存泄漏 [] 号不能少，因为new的时候是数组，少了[]会报 触发一个焦点，堆破坏的错误
+	for (int i=0;i<m_text.size();i++)
+	{
+		delete m_text[i];
+	}
+	for (int i=0;i<m_pic.size();i++)
+	{
+		delete m_pic[i];
+	}
+	for (int i=0;i<m_num.size();i++)
+	{
+		delete m_num[i];
+	}
+	for (int i=0;i<m_btn.size();i++)
+	{
+		delete m_btn[i];
+	}
+	return CDialogEx::DestroyWindow();
 }
