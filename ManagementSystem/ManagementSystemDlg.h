@@ -48,6 +48,8 @@ public:
 	vector<CStatic *> m_num;
 	//定义一个增加数量的按钮
 	vector<CButton *> m_btn;
+	void createFoodList();
+	void createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic * m_numTemp,CButton * m_btnTemp);
 	
 	//CStatic m_picTemp;
 	//CStatic m_txt;
@@ -55,6 +57,7 @@ public:
 	void createFoodPicCtrl();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	virtual BOOL DestroyWindow();
+	static UINT ctrlID;
 };
 
 
