@@ -17,6 +17,7 @@
 #define  test 1
 
 #define IDC_TEXT_FOOD
+#define IDC_NUM_TEXT1 6671
 
 #if test
 #include "GuideUI.h"
@@ -50,6 +51,7 @@ CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
@@ -61,7 +63,7 @@ END_MESSAGE_MAP()
 
 
 CManagementSystemDlg::CManagementSystemDlg(CWnd* pParent /*=NULL*/)
-	: CDialogEx(CManagementSystemDlg::IDD, pParent)
+	: CDialogEx(CManagementSystemDlg::IDD, pParent),myCount(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	
@@ -71,6 +73,7 @@ CManagementSystemDlg::CManagementSystemDlg(CWnd* pParent /*=NULL*/)
 void CManagementSystemDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX,6671,myCount);
 }
 
 BEGIN_MESSAGE_MAP(CManagementSystemDlg, CDialogEx)
@@ -82,6 +85,7 @@ BEGIN_MESSAGE_MAP(CManagementSystemDlg, CDialogEx)
 	ON_WM_SIZE()
 	ON_BN_CLICKED(IDC_BTN_SURE, &CManagementSystemDlg::OnBnClickedBtnSure)
 	ON_WM_CTLCOLOR()
+//	ON_COMMAND_RANGE()
 END_MESSAGE_MAP()
 
 
@@ -89,6 +93,7 @@ END_MESSAGE_MAP()
 
 BOOL CManagementSystemDlg::OnInitDialog()
 {
+	createFoodList();
 	CDialogEx::OnInitDialog();
 
 	// 将“关于...”菜单项添加到系统菜单中。
@@ -126,7 +131,7 @@ BOOL CManagementSystemDlg::OnInitDialog()
 	//先加载两个菜式，作为测试，后续移除
 
 	createFoodPicCtrl();
-createFoodList();
+	createFoodListInstantiation(m_picTemp,m_txtTemp,m_txtPriceTemp,m_cutBtnTemp,m_numTemp,m_addBtnTemp);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
@@ -264,7 +269,6 @@ HBRUSH CManagementSystemDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		pDC->SetBkMode(TRANSPARENT);      //设置背景透明
 		return HBRUSH(GetStockObject(HOLLOW_BRUSH));
 	}
-
 	// TODO:  如果默认的不是所需画笔，则返回另一个画笔
 	return hbr;
 }
@@ -282,65 +286,88 @@ BOOL CManagementSystemDlg::DestroyWindow()
 	{
 		delete m_pic[i];
 	}
+	for (int i=0;i<m_textPrice.size();i++)
+	{
+		delete m_textPrice[i];
+	}
+	for (int i=0;i<m_btnCut.size();i++)
+	{
+		delete m_btnCut[i];
+	}
 	for (int i=0;i<m_num.size();i++)
 	{
 		delete m_num[i];
 	}
-	for (int i=0;i<m_btn.size();i++)
+	for (int i=0;i<m_btnAdd.size();i++)
 	{
-		delete m_btn[i];
+		delete m_btnAdd[i];
 	}
 	return CDialogEx::DestroyWindow();
 }
 
-//图片 文字介绍 数量显示 按钮
+//图片 文字介绍 数量显示 按钮  //调整行里各元素的位置
 void CManagementSystemDlg::createFoodList()
 {
 	CPoint picPoint;
 	CPoint txtPoint;
+	CPoint txtPricePoint;
+	CPoint cutBtnPoint;
 	CPoint numPoint;
-	CPoint btnPoint;
+	CPoint addBtnPoint;
 
-	CStatic * m_txtTemp=new CStatic;
-	CStatic * m_picTemp=new CStatic;
-	CStatic * m_numTemp=new CStatic;
-	CButton * m_btnTemp=new CButton;
+	m_picTemp=new CStatic;
+	m_txtTemp=new CStatic;
+	m_txtPriceTemp=new CStatic;
+	m_cutBtnTemp=new CButton;
+	m_numTemp=new CEdit;
+	m_addBtnTemp=new CStatic;
 
-	picPoint.x=200;
-	picPoint.y=200;
 
 	//创建图片控件
+	picPoint.x=200;
+	picPoint.y=200;
 	m_picTemp->Create(_T("pic1"),WS_CHILD|WS_VISIBLE|SS_BITMAP|SS_CENTERIMAGE,CRect(picPoint.x,picPoint.y,picPoint.x+121,picPoint.y+100),this,6667);
 
 	//创建文字控件
 	txtPoint.x=picPoint.x+121+10;
 	txtPoint.y=picPoint.y+20;  // +20是相对于图片的位置偏移，100是每行的间距  
+	m_txtTemp->Create(_T("TextTips"),WS_CHILD|WS_VISIBLE,CRect(txtPoint.x,txtPoint.y,txtPoint.x+800,txtPoint.y+20),this,6668);
 
-	m_txtTemp->Create(_T("foodTip"),WS_CHILD|WS_VISIBLE,CRect(txtPoint.x,txtPoint.y,txtPoint.x+800,txtPoint.y+20),this,6668);
+	//创建价格文本控件
+	txtPricePoint.x=txtPoint.x+800+50;  //在前面800的大小下，再加50的空余
+	txtPricePoint.y=txtPoint.y;
+	m_txtPriceTemp->Create(_T("19 ¥"),WS_VISIBLE|WS_CHILD,CRect(txtPricePoint.x,txtPricePoint.y,txtPricePoint.x+50,txtPricePoint.y+20),this,6669);
+	 
+	//创建减按钮控件  SS_NOTIFY|
+	cutBtnPoint.x=txtPoint.x+800+50+100;  //再加100空余
+	cutBtnPoint.y=txtPoint.y;
+	m_cutBtnTemp->Create(_T("-"),WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,CRect(cutBtnPoint.x,cutBtnPoint.y,cutBtnPoint.x+50,cutBtnPoint.y+20),this,6670);
 
-
-	//创建数字控件
-	numPoint.x=txtPoint.x+800+100;  //800为前面一项的大小，
+	//创建显示数量的文字控件
+	numPoint.x=txtPoint.x+800+50+100+50+30;
 	numPoint.y=txtPoint.y;
+	m_numTemp->Create(WS_VISIBLE|WS_CHILD|SS_NOTIFY|ES_NUMBER,CRect(numPoint.x,numPoint.y,numPoint.x+30,numPoint.y+20),this,IDC_NUM_TEXT1);
 
-	m_numTemp->Create(_T("num"),WS_VISIBLE|WS_CHILD,CRect(numPoint.x,numPoint.y,numPoint.x+10,numPoint.y+20),this,6669);
 
+	//创建增加按钮控件
+	addBtnPoint.x=txtPoint.x+800+50+100+50+100;
+	addBtnPoint.y=txtPoint.y-5;
 
-	//创建按钮控件
-	btnPoint.x=txtPoint.x+800+100+100;
-	btnPoint.y=txtPoint.y;
-
-	m_btnTemp->Create(_T("+"),WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,CRect(btnPoint.x,btnPoint.y,btnPoint.x+50,btnPoint.y+20),this,6670);
-	createFoodListInstantiation(m_picTemp,m_txtTemp,m_numTemp,m_btnTemp);
+	m_addBtnTemp->Create(_T("+"),WS_CHILD|WS_VISIBLE|SS_NOTIFY|SS_BITMAP|SS_CENTERIMAGE,CRect(addBtnPoint.x,addBtnPoint.y,addBtnPoint.x+30,addBtnPoint.y+30),this,6672);
+	
 }
 
 
-void CManagementSystemDlg::createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic * m_numTemp,CButton * m_btnTemp)
+void CManagementSystemDlg::createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic * m_textPriceTemp,CButton * m_cutBtnTemp,CEdit * m_numTemp,CStatic * m_addBtnTemp)
 {
+	CImage image;
+	image.Load(_T("res/addPress1.png"));
+	HBITMAP hBmp=image.Detach();
 	m_pic.push_back(m_picTemp);
 	int size=m_pic.size()-1;
 	if(m_pic[size]->GetBitmap() ==NULL)
 		m_pic[size]->SetBitmap((HBITMAP)mBitmapDrawFood);
+
 	//设置为位图模式，不可去掉
 	m_pic[size]->ModifyStyle(0xf,SS_BITMAP);
 	m_pic[size]->ShowWindow(TRUE);
@@ -349,12 +376,19 @@ void CManagementSystemDlg::createFoodListInstantiation(CStatic * m_picTemp,CStat
 	m_text[size]->SetWindowText(_T("煎牛柳     Seared beef fillet  / ceps mushroom ragout  / garlic cheese mash potato"));
 	//	UpdateData(TRUE);
 
+	m_textPrice.push_back(m_textPriceTemp);
+	m_textPrice[size]->SetWindowText(_T("&19¥"));
+
+	m_btnCut.push_back(m_cutBtnTemp);
+	m_btnCut[size]->ShowWindow(SW_SHOW);
+
 	m_num.push_back(m_numTemp);
-	m_num[size]->SetWindowText(_T("0"));
+	myCount=1;
+	UpdateData(FALSE);//将值传入界面
 
-	m_btn.push_back(m_btnTemp);
-	m_btn[size]->ShowWindow(SW_SHOW);
-
+	m_btnAdd.push_back(m_addBtnTemp);
+	m_btnAdd[size]->SetBitmap(hBmp);
+	m_btnAdd[size]->ShowWindow(SW_SHOW);
 }
 
 

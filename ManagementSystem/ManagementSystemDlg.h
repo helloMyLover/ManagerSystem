@@ -44,13 +44,26 @@ public:
 	vector<CStatic *> m_pic;
 	//定义一个描述性文字的文本变量
 	vector<CStatic *> m_text;
+	//定义一个显示价格的文本变量
+	vector<CStatic *> m_textPrice;
+	//定义一个减少数量的按钮
+	vector<CButton *>m_btnCut;
 	//定义一个显示数量的文本变量
-	vector<CStatic *> m_num;
+	int myCount;
+	//vector<CStatic *> m_num;
+	vector<CEdit *>  m_num;
 	//定义一个增加数量的按钮
-	vector<CButton *> m_btn;
+	vector<CStatic *> m_btnAdd;
 	void createFoodList();
-	void createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic * m_numTemp,CButton * m_btnTemp);
-	
+	CStatic * m_picTemp;
+	CStatic * m_txtTemp;
+	CStatic * m_txtPriceTemp;
+	CButton * m_cutBtnTemp;
+	CEdit   * m_numTemp;
+	CStatic * m_addBtnTemp;
+
+	void createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic *m_textPriceTemp,CButton * m_cutBtnTemp,CEdit *m_numTemp,CStatic * m_addBtnTemp);
+
 	//CStatic m_picTemp;
 	//CStatic m_txt;
 //	CStatic * m_txt;
@@ -58,6 +71,22 @@ public:
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	virtual BOOL DestroyWindow();
 	static UINT ctrlID;
+};
+
+
+class CFoodList
+{
+public:
+	CFoodList();
+	UINT ID;
+	string text;
+	
+	float price;
+	CBitmap mBitmapDrawFood;
+
+private:
+	int count; //数量 应当只通过按钮来改变 或者自身回车接受
+
 };
 
 
