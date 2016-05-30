@@ -47,7 +47,7 @@ public:
 	//定义一个显示价格的文本变量
 	vector<CStatic *> m_textPrice;
 	//定义一个减少数量的按钮
-	vector<CButton *>m_btnCut;
+	vector<CStatic *>m_btnCut;
 	//定义一个显示数量的文本变量
 	int myCount;
 	//vector<CStatic *> m_num;
@@ -58,11 +58,11 @@ public:
 	CStatic * m_picTemp;
 	CStatic * m_txtTemp;
 	CStatic * m_txtPriceTemp;
-	CButton * m_cutBtnTemp;
+	CStatic * m_cutBtnTemp;
 	CEdit   * m_numTemp;
 	CStatic * m_addBtnTemp;
-
-	void createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic *m_textPriceTemp,CButton * m_cutBtnTemp,CEdit *m_numTemp,CStatic * m_addBtnTemp);
+	vector<CImage> image;
+	void createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic *m_textPriceTemp,CStatic * m_cutBtnTemp,CEdit *m_numTemp,CStatic * m_addBtnTemp);
 
 	//CStatic m_picTemp;
 	//CStatic m_txt;
@@ -71,6 +71,13 @@ public:
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	virtual BOOL DestroyWindow();
 	static UINT ctrlID;
+	CImage imgTemp[4];
+	HBITMAP hBmp[4];
+	UINT m_ID;  //在按钮按下时记录当下的ID号
+	void initResouce();
+	afx_msg void addOrCutCount(UINT ID);
+	HANDLE hThread;
+	static unsigned __stdcall sleepChangeButton(void *pArgument);
 };
 
 
@@ -86,7 +93,6 @@ public:
 
 private:
 	int count; //数量 应当只通过按钮来改变 或者自身回车接受
-
 };
 
 

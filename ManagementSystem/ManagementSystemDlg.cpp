@@ -66,8 +66,6 @@ CManagementSystemDlg::CManagementSystemDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CManagementSystemDlg::IDD, pParent),myCount(0)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-	
-	
 }
 
 void CManagementSystemDlg::DoDataExchange(CDataExchange* pDX)
@@ -85,15 +83,63 @@ BEGIN_MESSAGE_MAP(CManagementSystemDlg, CDialogEx)
 	ON_WM_SIZE()
 	ON_BN_CLICKED(IDC_BTN_SURE, &CManagementSystemDlg::OnBnClickedBtnSure)
 	ON_WM_CTLCOLOR()
-//	ON_COMMAND_RANGE()
+	ON_COMMAND_RANGE(10000,12000,&CManagementSystemDlg::addOrCutCount)
 END_MESSAGE_MAP()
 
 
+unsigned __stdcall CManagementSystemDlg::sleepChangeButton(void *pArgument)
+{
+	CManagementSystemDlg *handle =(CManagementSystemDlg *)pArgument;
+	UINT  ID=handle->m_ID;
+	HBITMAP hBmp[2];
+	hBmp[0]=handle->hBmp[0];
+	hBmp[1]=handle->hBmp[2];
+	if (ID %2 !=0)
+	{
+		Sleep(100);
+		handle->m_btnAdd[0]->SetBitmap(hBmp[0]);
+		handle->m_btnAdd[0]->ShowWindow(SW_SHOW);
+	}
+	else
+	{
+		Sleep(100);
+		handle->m_btnCut[0]->SetBitmap(hBmp[1]);
+		handle->m_btnCut[0]->ShowWindow(SW_SHOW);
+	}
+	return 1;
+}
+void CManagementSystemDlg::addOrCutCount(UINT ID)
+{
+	m_ID=ID;
+	if (ID %2 !=0)
+	{
+		m_btnAdd[0]->SetBitmap(hBmp[1]);
+		m_btnAdd[0]->ShowWindow(SW_SHOW);
+		myCount++;
+		UpdateData(FALSE);
+		hThread=(HANDLE)_beginthreadex(NULL,0,&sleepChangeButton,this,0,NULL);
+	}
+	else
+	{
+
+		m_btnCut[0]->SetBitmap(hBmp[3]);
+		m_btnCut[0]->ShowWindow(SW_SHOW);
+		if (myCount >0 )
+		{
+			myCount--;
+		}
+		UpdateData(FALSE);
+		hThread=(HANDLE)_beginthreadex(NULL,0,&sleepChangeButton,this,0,NULL);
+		
+	}
+
+}
 // CManagementSystemDlg 消息处理程序
 
 BOOL CManagementSystemDlg::OnInitDialog()
 {
-	createFoodList();
+	initResouce();
+	
 	CDialogEx::OnInitDialog();
 
 	// 将“关于...”菜单项添加到系统菜单中。
@@ -183,6 +229,7 @@ HCURSOR CManagementSystemDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
+
 
 
 void CManagementSystemDlg::OnBnClickedBtnTest()
@@ -318,7 +365,7 @@ void CManagementSystemDlg::createFoodList()
 	m_picTemp=new CStatic;
 	m_txtTemp=new CStatic;
 	m_txtPriceTemp=new CStatic;
-	m_cutBtnTemp=new CButton;
+	m_cutBtnTemp=new CStatic;
 	m_numTemp=new CEdit;
 	m_addBtnTemp=new CStatic;
 
@@ -340,8 +387,8 @@ void CManagementSystemDlg::createFoodList()
 	 
 	//创建减按钮控件  SS_NOTIFY|
 	cutBtnPoint.x=txtPoint.x+800+50+100;  //再加100空余
-	cutBtnPoint.y=txtPoint.y;
-	m_cutBtnTemp->Create(_T("-"),WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,CRect(cutBtnPoint.x,cutBtnPoint.y,cutBtnPoint.x+50,cutBtnPoint.y+20),this,6670);
+	cutBtnPoint.y=txtPoint.y-5;
+	m_cutBtnTemp->Create(_T("-"),WS_CHILD|WS_VISIBLE|SS_NOTIFY|SS_BITMAP|SS_CENTERIMAGE,CRect(cutBtnPoint.x,cutBtnPoint.y,cutBtnPoint.x+30,cutBtnPoint.y+30),this,10000);
 
 	//创建显示数量的文字控件
 	numPoint.x=txtPoint.x+800+50+100+50+30;
@@ -353,18 +400,17 @@ void CManagementSystemDlg::createFoodList()
 	addBtnPoint.x=txtPoint.x+800+50+100+50+100;
 	addBtnPoint.y=txtPoint.y-5;
 
-	m_addBtnTemp->Create(_T("+"),WS_CHILD|WS_VISIBLE|SS_NOTIFY|SS_BITMAP|SS_CENTERIMAGE,CRect(addBtnPoint.x,addBtnPoint.y,addBtnPoint.x+30,addBtnPoint.y+30),this,6672);
+	m_addBtnTemp->Create(_T("+"),WS_CHILD|WS_VISIBLE|SS_NOTIFY|SS_BITMAP|SS_CENTERIMAGE,CRect(addBtnPoint.x,addBtnPoint.y,addBtnPoint.x+30,addBtnPoint.y+30),this,10001);
 	
 }
 
 
-void CManagementSystemDlg::createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic * m_textPriceTemp,CButton * m_cutBtnTemp,CEdit * m_numTemp,CStatic * m_addBtnTemp)
+void CManagementSystemDlg::createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic * m_textPriceTemp,CStatic * m_cutBtnTemp,CEdit * m_numTemp,CStatic * m_addBtnTemp)
 {
-	CImage image;
-	image.Load(_T("res/addPress1.png"));
-	HBITMAP hBmp=image.Detach();
+
 	m_pic.push_back(m_picTemp);
-	int size=m_pic.size()-1;
+	int size=m_pic.size()-1;  
+
 	if(m_pic[size]->GetBitmap() ==NULL)
 		m_pic[size]->SetBitmap((HBITMAP)mBitmapDrawFood);
 
@@ -380,6 +426,7 @@ void CManagementSystemDlg::createFoodListInstantiation(CStatic * m_picTemp,CStat
 	m_textPrice[size]->SetWindowText(_T("&19¥"));
 
 	m_btnCut.push_back(m_cutBtnTemp);
+	m_btnCut[size]->SetBitmap(hBmp[2]);
 	m_btnCut[size]->ShowWindow(SW_SHOW);
 
 	m_num.push_back(m_numTemp);
@@ -387,8 +434,24 @@ void CManagementSystemDlg::createFoodListInstantiation(CStatic * m_picTemp,CStat
 	UpdateData(FALSE);//将值传入界面
 
 	m_btnAdd.push_back(m_addBtnTemp);
-	m_btnAdd[size]->SetBitmap(hBmp);
+	m_btnAdd[size]->SetBitmap(hBmp[0]);
 	m_btnAdd[size]->ShowWindow(SW_SHOW);
+}
+
+void CManagementSystemDlg::initResouce()
+{
+	//加载资源
+	imgTemp[0].Load(_T("res/add.png"));
+	imgTemp[1].Load(_T("res/addPress.png"));
+	imgTemp[2].Load(_T("res/cut.png"));
+	imgTemp[3].Load(_T("res/cutPress.png"));
+
+	for (int i=0 ; i<4 ; i++)
+	{
+		hBmp[i]=imgTemp[i].Detach();
+	}
+
+	createFoodList();
 }
 
 
