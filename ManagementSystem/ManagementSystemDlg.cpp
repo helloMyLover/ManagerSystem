@@ -11,18 +11,12 @@
 #include <Windows.h>
 #include "MEAT.h"
 
-
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#endif
-#define  test 1
-
-#define IDC_TEXT_FOOD
 #define IDC_NUM_TEXT1 6671
 
+#define  test 1
 #if test
 #include "GuideUI.h"
-#include "Food.h"
+//#include "Food.h"
 #endif
 
 
@@ -122,7 +116,6 @@ void CManagementSystemDlg::addOrCutCount(UINT ID)
 	}
 	else
 	{
-
 		m_btnCut[0]->SetBitmap(hBmp[3]);
 		m_btnCut[0]->ShowWindow(SW_SHOW);
 		if (myCount >0 )
@@ -131,7 +124,6 @@ void CManagementSystemDlg::addOrCutCount(UINT ID)
 		}
 		UpdateData(FALSE);
 		hThread=(HANDLE)_beginthreadex(NULL,0,&sleepChangeButton,this,0,NULL);
-		
 	}
 
 }
@@ -177,7 +169,6 @@ BOOL CManagementSystemDlg::OnInitDialog()
 
 	//先加载两个菜式，作为测试，后续移除
 
-	createFoodPicCtrl();
 	createFoodListInstantiation(m_picTemp,m_txtTemp,m_txtPriceTemp,m_cutBtnTemp,m_numTemp,m_addBtnTemp);
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -240,8 +231,8 @@ void CManagementSystemDlg::OnBnClickedBtnTest()
 	CEmployee dlg;
 	dlg.DoModal();
 #else 
-	CFood DLG;
-	DLG.DoModal();
+	//CFood DLG;
+	//DLG.DoModal();
 #endif
 }
 
@@ -266,9 +257,10 @@ void CManagementSystemDlg::OnSize(UINT nType, int cx, int cy)
 {
 	CDialogEx::OnSize(nType, cx, cy);
 
+	//关闭按钮
 	CRect oldrc;
 	GetWindowRect(oldrc);
-	CWnd * pwnd = GetDlgItem(IDOK);
+	CWnd * pwnd = GetDlgItem(IDOK);   
 //	if(pwnd->GetSafeHwnd())
 //		pwnd->MoveWindow(cx-20,);
 	pwnd->SetWindowPos(NULL,1425,11,0,0,SWP_NOZORDER | SWP_NOSIZE);
@@ -276,10 +268,9 @@ void CManagementSystemDlg::OnSize(UINT nType, int cx, int cy)
 	//CWnd * pwnd2=GetDlgItem(IDC_MENU);
 	//pwnd2->SetWindowPos(NULL,0,0,1200,750,SWP_NOMOVE);
 
+	//下单按钮 
 	CWnd * pwnd3=GetDlgItem(IDC_BTN_SURE);
 	pwnd3->SetWindowPos(NULL,1250,900,0,0,SWP_NOZORDER | SWP_NOSIZE);
-
-	
 
 	// TODO: 在此处添加消息处理程序代码
 }
@@ -289,20 +280,6 @@ void CManagementSystemDlg::OnBnClickedBtnSure()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	
-}
-
-
-
-void CManagementSystemDlg::createFoodPicCtrl()
-{
-	//读取数据库现有食谱 加载
-
-	mBitmapDrawFood.LoadBitmap(IDB_FOOD);
-	//CRect参数1和2确定控件右上角落点在哪，参数2和3确定控件的大小
-	for ( int i=0 ; i<5 ; i++ )
-	{
-
-	}
 }
 
 
@@ -409,7 +386,7 @@ void CManagementSystemDlg::createFoodListInstantiation(CStatic * m_picTemp,CStat
 
 	m_pic.push_back(m_picTemp);
 	int size=m_pic.size()-1;  
-
+	mBitmapDrawFood.LoadBitmap(IDB_FOOD);  //用路径加载失败
 	if(m_pic[size]->GetBitmap() ==NULL)
 		m_pic[size]->SetBitmap((HBITMAP)mBitmapDrawFood);
 
@@ -449,7 +426,7 @@ void CManagementSystemDlg::initResouce()
 	{
 		hBmp[i]=imgTemp[i].Detach();
 	}
-
+	
 	createFoodList();
 }
 

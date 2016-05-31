@@ -54,7 +54,7 @@ public:
 	vector<CEdit *>  m_num;
 	//定义一个增加数量的按钮
 	vector<CStatic *> m_btnAdd;
-	void createFoodList();
+	
 	CStatic * m_picTemp;
 	CStatic * m_txtTemp;
 	CStatic * m_txtPriceTemp;
@@ -62,12 +62,12 @@ public:
 	CEdit   * m_numTemp;
 	CStatic * m_addBtnTemp;
 	vector<CImage> image;
+	void createFoodList();
 	void createFoodListInstantiation(CStatic * m_picTemp,CStatic * m_txtTemp,CStatic *m_textPriceTemp,CStatic * m_cutBtnTemp,CEdit *m_numTemp,CStatic * m_addBtnTemp);
 
 	//CStatic m_picTemp;
 	//CStatic m_txt;
 //	CStatic * m_txt;
-	void createFoodPicCtrl();
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	virtual BOOL DestroyWindow();
 	static UINT ctrlID;
@@ -81,18 +81,5 @@ public:
 };
 
 
-class CFoodList
-{
-public:
-	CFoodList();
-	UINT ID;
-	string text;
-	
-	float price;
-	CBitmap mBitmapDrawFood;
-
-private:
-	int count; //数量 应当只通过按钮来改变 或者自身回车接受
-};
 
 

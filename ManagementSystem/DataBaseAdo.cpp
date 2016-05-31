@@ -6,7 +6,6 @@
 CDataBaseAdo::CDataBaseAdo(void)
 :strConnection("Provider=SQLOLEDB;Data Source=8PDYMQCADPLRIDS;Initial Catalog=MyData;UID=lily;PWD=123")
 {
-
 	::CoInitialize(NULL);
 	m_pConnection = NULL;
 }
