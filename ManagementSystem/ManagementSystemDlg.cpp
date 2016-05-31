@@ -9,6 +9,7 @@
 #include "Employee.h"
 #include <exception>
 #include <Windows.h>
+#include "MEAT.h"
 
 
 #ifdef _DEBUG
@@ -395,11 +396,9 @@ void CManagementSystemDlg::createFoodList()
 	numPoint.y=txtPoint.y;
 	m_numTemp->Create(WS_VISIBLE|WS_CHILD|SS_NOTIFY|ES_NUMBER,CRect(numPoint.x,numPoint.y,numPoint.x+30,numPoint.y+20),this,IDC_NUM_TEXT1);
 
-
 	//创建增加按钮控件
-	addBtnPoint.x=txtPoint.x+800+50+100+50+100;
+	addBtnPoint.x=txtPoint.x+800+50+100+50+80;
 	addBtnPoint.y=txtPoint.y-5;
-
 	m_addBtnTemp->Create(_T("+"),WS_CHILD|WS_VISIBLE|SS_NOTIFY|SS_BITMAP|SS_CENTERIMAGE,CRect(addBtnPoint.x,addBtnPoint.y,addBtnPoint.x+30,addBtnPoint.y+30),this,10001);
 	
 }
